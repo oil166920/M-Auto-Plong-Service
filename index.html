@@ -7,24 +7,26 @@
 <title>เอ็มออโต้ แพลงท์เซอร์วิส | ครบจบที่เดียว</title>
 
 <meta name="description"
-content="เอ็มออโต้ แพลงท์เซอร์วิส ศูนย์บริการรถยนต์ครบวงจร เครื่องเสียง ทำสี เครื่องยนต์ ช่วงล่าง แอร์รถยนต์ ติดฟิล์ม และ VIP Service">
+content="เอ็มออโต้ แพลงท์เซอร์วิส ศูนย์บริการรถยนต์ครบวงจร เครื่องเสียง ทำสี เครื่องยนต์ ช่วงล่าง แอร์ ติดฟิล์ม และบริการ VIP">
 
 <meta name="theme-color" content="#05070b">
 
 <style>
+
 :root{
   --bg:#05070b;
-  --bg2:#09101a;
-  --card:#0d1520;
-  --card2:#111d2b;
+  --bg2:#080d15;
+  --card:#0d1420;
+  --card2:#111c2a;
   --blue:#168cff;
-  --cyan:#00d5ff;
+  --cyan:#00d9ff;
   --red:#ff2638;
   --gold:#ffc400;
-  --white:#f7faff;
-  --muted:#9eacbd;
+  --green:#19e68c;
+  --white:#f5f9ff;
+  --muted:#94a5b8;
   --line:rgba(255,255,255,.09);
-  --shadow:0 25px 70px rgba(0,0,0,.45);
+  --shadow:0 20px 60px rgba(0,0,0,.45);
 }
 
 *{
@@ -38,14 +40,29 @@ html{
 }
 
 body{
-  font-family:Arial,"Noto Sans Thai",Tahoma,sans-serif;
+  font-family:
+    Arial,
+    "Noto Sans Thai",
+    sans-serif;
   background:
-    radial-gradient(circle at 10% 0%,rgba(0,130,255,.12),transparent 28%),
-    radial-gradient(circle at 90% 15%,rgba(255,20,40,.08),transparent 25%),
+    radial-gradient(
+      circle at 10% 10%,
+      rgba(0,130,255,.13),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 90% 20%,
+      rgba(255,30,50,.08),
+      transparent 25%
+    ),
     var(--bg);
   color:var(--white);
-  line-height:1.7;
+  line-height:1.65;
   overflow-x:hidden;
+}
+
+body.lightbox-open{
+  overflow:hidden;
 }
 
 a{
@@ -60,59 +77,75 @@ textarea{
   font:inherit;
 }
 
+button{
+  cursor:pointer;
+}
+
 img{
   max-width:100%;
+  display:block;
 }
+
+/* =========================
+   CONTAINER
+========================= */
 
 .container{
   width:min(1180px,92%);
   margin:auto;
 }
 
-/* ================= HEADER ================= */
+/* =========================
+   HEADER
+========================= */
 
 header{
   position:fixed;
+  z-index:1000;
   top:0;
   left:0;
   width:100%;
-  z-index:1000;
-  background:rgba(3,6,11,.88);
+  background:rgba(5,7,11,.82);
   backdrop-filter:blur(18px);
   border-bottom:1px solid var(--line);
 }
 
 .nav{
-  min-height:78px;
+  height:76px;
   display:flex;
   align-items:center;
   justify-content:space-between;
   gap:20px;
 }
 
-.brand{
+.logo{
   display:flex;
   align-items:center;
   gap:12px;
-}
-
-.brand img{
-  width:58px;
-  height:58px;
-  object-fit:contain;
-  border-radius:12px;
-}
-
-.brand-text{
   font-weight:900;
-  font-size:16px;
 }
 
-.brand-text small{
+.logo-img{
+  width:46px;
+  height:46px;
+  object-fit:cover;
+  border-radius:12px;
+  border:1px solid rgba(0,200,255,.35);
+  box-shadow:
+    0 0 25px rgba(0,140,255,.35);
+}
+
+.logo-text{
+  font-size:16px;
+  line-height:1.1;
+}
+
+.logo-text small{
   display:block;
   color:var(--gold);
   font-size:9px;
   letter-spacing:2px;
+  margin-top:4px;
 }
 
 .nav-links{
@@ -122,9 +155,8 @@ header{
 }
 
 .nav-links a{
-  color:#c9d4e1;
+  color:#c8d3df;
   font-size:13px;
-  font-weight:700;
   transition:.25s;
 }
 
@@ -134,20 +166,21 @@ header{
 
 .menu-btn{
   display:none;
-  width:45px;
-  height:45px;
+  width:44px;
+  height:44px;
   border-radius:12px;
   border:1px solid var(--line);
   background:#101925;
   color:white;
-  cursor:pointer;
 }
 
-/* ================= HERO ================= */
+/* =========================
+   HERO
+========================= */
 
 .hero{
   min-height:100svh;
-  padding:145px 0 80px;
+  padding:145px 0 90px;
   display:flex;
   align-items:center;
   position:relative;
@@ -159,11 +192,11 @@ header{
   position:absolute;
   width:650px;
   height:650px;
-  border-radius:50%;
-  background:rgba(0,130,255,.13);
-  filter:blur(100px);
   right:-250px;
-  top:5%;
+  top:50px;
+  border-radius:50%;
+  background:rgba(0,130,255,.12);
+  filter:blur(90px);
 }
 
 .hero:after{
@@ -171,147 +204,182 @@ header{
   position:absolute;
   width:400px;
   height:400px;
+  left:-180px;
+  bottom:-150px;
   border-radius:50%;
   background:rgba(255,20,40,.08);
-  filter:blur(100px);
-  left:-150px;
-  bottom:-100px;
+  filter:blur(80px);
 }
 
 .hero-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:55px;
-  align-items:center;
   position:relative;
   z-index:2;
+  display:grid;
+  grid-template-columns:1.05fr .95fr;
+  gap:55px;
+  align-items:center;
 }
 
 .badge{
   display:inline-flex;
-  padding:8px 15px;
+  align-items:center;
+  gap:8px;
+  padding:8px 14px;
   border-radius:999px;
   background:rgba(0,130,255,.08);
   border:1px solid rgba(0,180,255,.3);
-  color:#72d2ff;
+  color:#72d4ff;
   font-size:12px;
   font-weight:800;
-  letter-spacing:.5px;
   margin-bottom:20px;
 }
 
 .hero h1{
-  font-size:clamp(42px,6vw,78px);
-  line-height:1.03;
-  letter-spacing:-2px;
-  font-weight:950;
+  font-size:clamp(44px,7vw,82px);
+  line-height:1;
+  letter-spacing:-3px;
 }
 
 .gradient{
-  background:linear-gradient(90deg,#fff,var(--cyan),var(--gold));
+  background:
+    linear-gradient(
+      90deg,
+      #fff,
+      var(--cyan),
+      var(--gold)
+    );
   -webkit-background-clip:text;
   background-clip:text;
   color:transparent;
 }
 
 .hero h2{
-  margin:18px 0 12px;
   color:var(--gold);
-  font-size:clamp(23px,3vw,34px);
+  font-size:clamp(22px,3vw,34px);
+  margin:20px 0 14px;
 }
 
 .hero p{
   color:var(--muted);
-  font-size:17px;
   max-width:650px;
+  font-size:17px;
 }
 
 .buttons{
   display:flex;
   flex-wrap:wrap;
-  gap:12px;
+  gap:10px;
   margin-top:28px;
 }
 
 .btn{
   min-height:48px;
-  padding:12px 20px;
-  border-radius:13px;
+  padding:11px 19px;
+  border-radius:12px;
   border:1px solid var(--line);
   display:inline-flex;
   align-items:center;
   justify-content:center;
   gap:8px;
-  cursor:pointer;
-  font-weight:900;
+  font-weight:800;
   transition:.25s;
 }
 
 .btn:hover{
-  transform:translateY(-3px);
-  box-shadow:0 12px 35px rgba(0,0,0,.35);
+  transform:translateY(-2px);
 }
 
-.btn-blue{
+.btn-primary{
   color:white;
-  background:linear-gradient(135deg,#168cff,#004cff);
+  border:0;
+  background:
+    linear-gradient(
+      135deg,
+      var(--blue),
+      #004dff
+    );
+  box-shadow:
+    0 0 28px rgba(0,130,255,.22);
 }
 
 .btn-red{
   color:white;
-  background:linear-gradient(135deg,#ff3044,#a90016);
+  border:0;
+  background:
+    linear-gradient(
+      135deg,
+      #ff2638,
+      #a90015
+    );
 }
 
 .btn-gold{
   color:#111;
-  background:linear-gradient(135deg,#ffe574,#ffc400);
+  border:0;
+  background:
+    linear-gradient(
+      135deg,
+      #ffe477,
+      var(--gold)
+    );
 }
 
 .btn-dark{
-  background:#101925;
   color:white;
+  background:#101925;
 }
 
-.hero-logo{
-  background:
-    radial-gradient(circle at center,rgba(0,130,255,.18),transparent 55%),
-    linear-gradient(145deg,#101b2a,#05080d);
-  border:1px solid var(--line);
-  border-radius:32px;
+.hero-card{
   min-height:500px;
+  position:relative;
+  overflow:hidden;
+  border-radius:30px;
+  border:1px solid var(--line);
+  background:
+    linear-gradient(
+      145deg,
+      rgba(19,32,50,.95),
+      rgba(5,9,15,.98)
+    );
+  box-shadow:var(--shadow);
   display:flex;
   align-items:center;
   justify-content:center;
   padding:35px;
-  box-shadow:var(--shadow);
-  position:relative;
-  overflow:hidden;
 }
 
-.hero-logo:before{
-  content:"";
+.hero-logo{
+  width:min(270px,65%);
+  aspect-ratio:1;
+  object-fit:contain;
+  border-radius:30px;
+  filter:
+    drop-shadow(
+      0 0 35px
+      rgba(0,150,255,.3)
+    );
+}
+
+.hero-card-info{
   position:absolute;
-  width:80%;
-  height:80%;
-  background:rgba(0,150,255,.1);
-  filter:blur(80px);
-  border-radius:50%;
+  left:25px;
+  right:25px;
+  bottom:25px;
+  padding:17px;
+  border-radius:16px;
+  background:rgba(0,0,0,.42);
+  border:1px solid var(--line);
+  text-align:center;
+  color:#b9eaff;
 }
 
-.hero-logo img{
-  position:relative;
-  z-index:2;
-  width:100%;
-  max-width:500px;
-  border-radius:25px;
-  box-shadow:0 0 50px rgba(0,130,255,.18);
-}
-
-/* ================= SECTION ================= */
+/* =========================
+   SECTION
+========================= */
 
 section{
   padding:90px 0;
-  scroll-margin-top:90px;
+  scroll-margin-top:85px;
 }
 
 .section-head{
@@ -321,13 +389,12 @@ section{
 .kicker{
   color:var(--cyan);
   font-size:11px;
-  letter-spacing:3px;
   font-weight:900;
+  letter-spacing:3px;
 }
 
 .section-head h2{
   font-size:clamp(30px,5vw,50px);
-  line-height:1.15;
   margin:6px 0;
 }
 
@@ -335,44 +402,50 @@ section{
   color:var(--muted);
 }
 
+/* =========================
+   CARDS
+========================= */
+
 .grid{
   display:grid;
   gap:18px;
 }
 
-/* ================= SERVICES ================= */
-
-.services{
-  grid-template-columns:repeat(4,1fr);
-}
-
 .card{
-  background:linear-gradient(145deg,var(--card),#080d14);
-  border:1px solid var(--line);
-  border-radius:20px;
   padding:24px;
+  border-radius:20px;
+  border:1px solid var(--line);
+  background:
+    linear-gradient(
+      145deg,
+      var(--card),
+      #080d14
+    );
   transition:.3s;
 }
 
 .card:hover{
   transform:translateY(-5px);
-  border-color:rgba(0,180,255,.35);
-  box-shadow:0 20px 45px rgba(0,0,0,.3);
+  border-color:rgba(0,180,255,.3);
+  box-shadow:0 20px 45px rgba(0,0,0,.28);
+}
+
+.card p{
+  color:var(--muted);
+  font-size:14px;
+}
+
+.card h3{
+  margin-bottom:8px;
+}
+
+.services{
+  grid-template-columns:repeat(4,1fr);
 }
 
 .service-icon{
   font-size:36px;
   margin-bottom:12px;
-}
-
-.card h3{
-  margin-bottom:7px;
-}
-
-.card p,
-.card li{
-  color:var(--muted);
-  font-size:14px;
 }
 
 .card ul{
@@ -381,30 +454,141 @@ section{
 }
 
 .card li{
-  padding:3px 0;
+  color:var(--muted);
+  font-size:14px;
+  padding:4px 0;
 }
 
 .card li:before{
-  content:"✓";
+  content:"›";
   color:var(--cyan);
-  font-weight:bold;
   margin-right:8px;
 }
 
-/* ================= PRICE ================= */
+/* =========================
+   PRICE
+========================= */
 
 .price-grid{
   grid-template-columns:repeat(3,1fr);
 }
 
 .price{
-  margin-top:15px;
   color:var(--gold);
-  font-size:19px;
+  font-weight:900;
+  font-size:20px;
+  margin-top:15px;
+}
+
+/* =========================
+   WORKS
+========================= */
+
+.gallery{
+  grid-template-columns:repeat(3,1fr);
+}
+
+.work-card{
+  overflow:hidden;
+  border-radius:22px;
+  border:1px solid var(--line);
+  background:
+    linear-gradient(
+      145deg,
+      #101a28,
+      #070b12
+    );
+  transition:.3s;
+}
+
+.work-card:hover{
+  transform:translateY(-7px);
+  border-color:rgba(0,200,255,.4);
+  box-shadow:
+    0 25px 55px rgba(0,0,0,.4);
+}
+
+.work-image{
+  height:270px;
+  overflow:hidden;
+  position:relative;
+  background:#05070b;
+}
+
+.work-image img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:.5s;
+}
+
+.work-card:hover .work-image img{
+  transform:scale(1.07);
+}
+
+.work-image:after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(
+      to top,
+      rgba(0,0,0,.55),
+      transparent 55%
+    );
+  pointer-events:none;
+}
+
+.work-info{
+  padding:20px;
+}
+
+.work-info span{
+  color:var(--cyan);
+  font-size:11px;
   font-weight:900;
 }
 
-/* ================= ABOUT ================= */
+.work-info h3{
+  margin:6px 0;
+}
+
+.work-info p{
+  color:var(--muted);
+  font-size:13px;
+}
+
+.work-card.hidden{
+  display:none;
+}
+
+/* =========================
+   PROMOTION
+========================= */
+
+.promo{
+  position:relative;
+  overflow:hidden;
+  padding:35px;
+  border-radius:25px;
+  border:1px solid rgba(255,196,0,.25);
+  background:
+    radial-gradient(
+      circle at 90% 10%,
+      rgba(255,196,0,.12),
+      transparent 35%
+    ),
+    #0c131d;
+}
+
+.promo h3{
+  color:var(--gold);
+  font-size:26px;
+}
+
+/* =========================
+   ABOUT
+========================= */
 
 .about{
   display:grid;
@@ -414,9 +598,14 @@ section{
 
 .highlight{
   padding:30px;
-  border-radius:25px;
+  border-radius:24px;
   border:1px solid var(--line);
-  background:linear-gradient(145deg,#101b2a,#080c13);
+  background:
+    linear-gradient(
+      145deg,
+      #101b2a,
+      #080c13
+    );
 }
 
 .highlight strong{
@@ -426,25 +615,30 @@ section{
   margin-bottom:10px;
 }
 
-/* ================= GALLERY ================= */
+/* =========================
+   TEAM
+========================= */
 
-.gallery{
+.team-grid{
   grid-template-columns:repeat(3,1fr);
 }
 
-.gallery-item{
-  height:230px;
-  border-radius:20px;
-  background:linear-gradient(145deg,#111d2c,#070a10);
-  border:1px dashed rgba(255,255,255,.18);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  color:#75869b;
+.team-photo{
+  height:260px;
+  border-radius:18px;
+  overflow:hidden;
+  margin-bottom:18px;
 }
 
-/* ================= REVIEWS ================= */
+.team-photo img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+/* =========================
+   REVIEWS
+========================= */
 
 .review-grid{
   grid-template-columns:repeat(3,1fr);
@@ -452,10 +646,13 @@ section{
 
 .stars{
   color:var(--gold);
-  font-size:20px;
+  font-size:21px;
+  letter-spacing:2px;
 }
 
-/* ================= FAQ ================= */
+/* =========================
+   FAQ
+========================= */
 
 .faq{
   display:grid;
@@ -463,23 +660,33 @@ section{
 }
 
 .faq details{
+  padding:18px 20px;
+  border-radius:15px;
   background:#0c131e;
   border:1px solid var(--line);
-  border-radius:15px;
-  padding:18px 20px;
 }
 
 .faq summary{
   cursor:pointer;
-  font-weight:900;
+  font-weight:800;
 }
 
 .faq p{
   color:var(--muted);
-  margin-top:10px;
+  margin-top:12px;
 }
 
-/* ================= CONTACT ================= */
+/* =========================
+   NEWS
+========================= */
+
+.news{
+  grid-template-columns:repeat(3,1fr);
+}
+
+/* =========================
+   FORM
+========================= */
 
 .contact-grid{
   display:grid;
@@ -489,10 +696,65 @@ section{
 
 .contact-card{
   padding:30px;
-  background:linear-gradient(145deg,#0d1622,#070b12);
-  border:1px solid var(--line);
   border-radius:24px;
+  border:1px solid var(--line);
+  background:
+    linear-gradient(
+      145deg,
+      #0e1723,
+      #070b12
+    );
 }
+
+.form{
+  display:grid;
+  gap:13px;
+}
+
+.form-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:13px;
+}
+
+input,
+select,
+textarea{
+  width:100%;
+  padding:14px 15px;
+  color:white;
+  background:#080e17;
+  border:1px solid var(--line);
+  border-radius:12px;
+  outline:none;
+}
+
+textarea{
+  min-height:120px;
+  resize:vertical;
+}
+
+input:focus,
+select:focus,
+textarea:focus{
+  border-color:var(--blue);
+  box-shadow:
+    0 0 0 3px
+    rgba(0,140,255,.1);
+}
+
+.booking-result{
+  display:none;
+  margin-top:18px;
+  padding:20px;
+  border-radius:16px;
+  border:1px solid rgba(0,200,255,.25);
+  background:rgba(0,100,255,.08);
+}
+
+/* =========================
+   CONTACT
+========================= */
 
 .contact-item{
   display:flex;
@@ -515,12 +777,24 @@ section{
   font-size:12px;
 }
 
+.contact-item b{
+  font-size:15px;
+}
+
+/* =========================
+   MAP
+========================= */
+
 .map{
-  min-height:380px;
+  min-height:350px;
   border-radius:24px;
-  border:1px dashed rgba(0,180,255,.35);
+  border:1px solid rgba(0,180,255,.2);
   background:
-    radial-gradient(circle at center,rgba(0,140,255,.15),transparent 40%),
+    radial-gradient(
+      circle at 50% 50%,
+      rgba(0,140,255,.12),
+      transparent 35%
+    ),
     #080d14;
   display:flex;
   align-items:center;
@@ -529,57 +803,13 @@ section{
   padding:30px;
 }
 
-/* ================= FORM ================= */
-
-.form{
-  display:grid;
-  gap:14px;
-}
-
-.form-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:14px;
-}
-
-input,
-textarea,
-select{
-  width:100%;
-  padding:14px 15px;
-  border-radius:12px;
-  border:1px solid var(--line);
-  background:#080e17;
-  color:white;
-  outline:none;
-}
-
-textarea{
-  min-height:120px;
-  resize:vertical;
-}
-
-input:focus,
-textarea:focus,
-select:focus{
-  border-color:var(--blue);
-  box-shadow:0 0 0 3px rgba(0,140,255,.1);
-}
-
-.booking-result{
-  display:none;
-  margin-top:18px;
-  padding:20px;
-  border-radius:16px;
-  background:rgba(0,100,255,.08);
-  border:1px solid rgba(0,200,255,.25);
-}
-
-/* ================= TIMELINE ================= */
+/* =========================
+   TRACKING
+========================= */
 
 .timeline{
   display:grid;
-  gap:10px;
+  gap:9px;
   margin-top:20px;
 }
 
@@ -595,6 +825,9 @@ select:focus{
 
 .status.active{
   border-color:var(--cyan);
+  box-shadow:
+    0 0 20px
+    rgba(0,200,255,.1);
 }
 
 .dot{
@@ -606,10 +839,13 @@ select:focus{
 
 .status.active .dot{
   background:var(--cyan);
-  box-shadow:0 0 12px var(--cyan);
+  box-shadow:
+    0 0 12px var(--cyan);
 }
 
-/* ================= ADMIN ================= */
+/* =========================
+   ADMIN
+========================= */
 
 .admin-grid{
   grid-template-columns:repeat(4,1fr);
@@ -617,17 +853,19 @@ select:focus{
 
 .admin-number{
   display:block;
-  font-size:35px;
+  font-size:32px;
   color:var(--cyan);
   font-weight:900;
 }
 
-/* ================= FOOTER ================= */
+/* =========================
+   FOOTER
+========================= */
 
 footer{
   padding:55px 0 110px;
-  border-top:1px solid var(--line);
   background:#03050a;
+  border-top:1px solid var(--line);
 }
 
 .footer-grid{
@@ -641,7 +879,9 @@ footer p{
   font-size:14px;
 }
 
-/* ================= FLOATING ================= */
+/* =========================
+   FLOATING
+========================= */
 
 .floating{
   display:none;
@@ -651,55 +891,98 @@ footer p{
   right:10px;
   bottom:10px;
   padding:7px;
-  grid-template-columns:repeat(4,1fr);
-  gap:5px;
+  border-radius:18px;
   background:rgba(5,8,13,.92);
   backdrop-filter:blur(15px);
   border:1px solid var(--line);
-  border-radius:18px;
+  grid-template-columns:repeat(4,1fr);
 }
 
 .float-btn{
   text-align:center;
-  padding:8px 3px;
-  border-radius:12px;
+  padding:7px 2px;
+  color:#dce8f5;
   font-size:10px;
 }
 
 .float-btn span{
   display:block;
-  font-size:18px;
+  font-size:19px;
 }
 
-/* ================= TOAST ================= */
+/* =========================
+   TOAST
+========================= */
 
 .toast{
-  position:fixed;
-  top:95px;
-  right:20px;
-  z-index:2000;
   display:none;
+  position:fixed;
+  z-index:3000;
+  top:90px;
+  right:20px;
+  max-width:350px;
   padding:15px 20px;
   border-radius:13px;
   background:#0d1825;
   border:1px solid var(--cyan);
-  box-shadow:0 10px 40px rgba(0,0,0,.4);
+  box-shadow:0 15px 40px rgba(0,0,0,.4);
 }
 
-/* ================= RESPONSIVE ================= */
+/* =========================
+   LIGHTBOX
+========================= */
+
+.lightbox{
+  display:none;
+  position:fixed;
+  z-index:5000;
+  inset:0;
+  padding:30px;
+  background:rgba(0,0,0,.92);
+  align-items:center;
+  justify-content:center;
+}
+
+.lightbox.show{
+  display:flex;
+}
+
+.lightbox img{
+  max-width:95%;
+  max-height:85vh;
+  object-fit:contain;
+  border-radius:15px;
+}
+
+.close-lightbox{
+  position:absolute;
+  right:25px;
+  top:20px;
+  width:45px;
+  height:45px;
+  border-radius:50%;
+  border:1px solid var(--line);
+  background:#111923;
+  color:white;
+  font-size:25px;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
 
 @media(max-width:1050px){
 
   .nav-links{
     position:absolute;
+    top:76px;
     left:0;
     right:0;
-    top:78px;
     display:none;
     flex-direction:column;
     align-items:stretch;
-    background:#070b12;
     padding:15px;
+    background:#070b12;
     border-bottom:1px solid var(--line);
   }
 
@@ -708,18 +991,28 @@ footer p{
   }
 
   .nav-links a{
-    padding:11px;
+    padding:10px;
   }
 
   .menu-btn{
     display:block;
   }
 
-  .hero-grid{
+  .services{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .hero-grid,
+  .about,
+  .contact-grid{
     grid-template-columns:1fr;
   }
 
-  .services{
+  .price-grid,
+  .gallery,
+  .team-grid,
+  .review-grid,
+  .news{
     grid-template-columns:repeat(2,1fr);
   }
 
@@ -727,44 +1020,12 @@ footer p{
     grid-template-columns:repeat(2,1fr);
   }
 
-  .price-grid,
-  .gallery,
-  .review-grid{
-    grid-template-columns:repeat(2,1fr);
-  }
-
-  .about,
-  .contact-grid{
-    grid-template-columns:1fr;
-  }
-
-  .footer-grid{
-    grid-template-columns:1fr 1fr;
-  }
 }
 
 @media(max-width:650px){
 
-  .container{
-    width:92%;
-  }
-
-  .brand img{
-    width:48px;
-    height:48px;
-  }
-
-  .brand-text{
-    font-size:14px;
-  }
-
   .hero{
     padding-top:120px;
-  }
-
-  .hero-logo{
-    min-height:auto;
-    padding:18px;
   }
 
   section{
@@ -774,7 +1035,9 @@ footer p{
   .services,
   .price-grid,
   .gallery,
+  .team-grid,
   .review-grid,
+  .news,
   .admin-grid,
   .footer-grid{
     grid-template-columns:1fr;
@@ -782,6 +1045,18 @@ footer p{
 
   .form-grid{
     grid-template-columns:1fr;
+  }
+
+  .hero-card{
+    min-height:350px;
+  }
+
+  .hero-logo{
+    width:220px;
+  }
+
+  .work-image{
+    height:300px;
   }
 
   .buttons{
@@ -797,1265 +1072,2065 @@ footer p{
   }
 
   footer{
-    padding-bottom:100px;
+    padding-bottom:105px;
   }
+
 }
+
 </style>
 </head>
 
+
 <body>
 
-<!-- ================= HEADER ================= -->
+
+<!-- =========================
+     HEADER
+========================= -->
 
 <header>
 
-<div class="container nav">
+  <div class="container nav">
 
-<a href="#home" class="brand">
+    <a href="#home" class="logo">
 
-<img
-src="https://i.ibb.co/35h779N8/6b219dcee969c322f7ffe86f284c55b2.jpg"
-alt="โลโก้ เอ็มออโต้ แพลงท์เซอร์วิส">
+      <img
+        class="logo-img"
+        src="https://i.ibb.co/35h779N8/6b219dcee969c322f7ffe86f284c55b2.jpg"
+        alt="เอ็มออโต้ แพลงท์เซอร์วิส"
+      >
 
-<div class="brand-text">
-เอ็มออโต้ แพลงท์เซอร์วิส
-<small>PLANT SERVICE</small>
-</div>
+      <div class="logo-text">
+        เอ็มออโต้
+        <small>PLANT SERVICE</small>
+      </div>
 
-</a>
+    </a>
 
-<button class="menu-btn" onclick="toggleMenu()">☰</button>
 
-<nav class="nav-links" id="navLinks">
+    <button
+      class="menu-btn"
+      onclick="toggleMenu()">
+      ☰
+    </button>
 
-<a href="#home">หน้าแรก</a>
-<a href="#services">บริการ</a>
-<a href="#prices">ราคา</a>
-<a href="#works">ผลงาน</a>
-<a href="#promotions">โปรโมชั่น</a>
-<a href="#about">เกี่ยวกับเรา</a>
-<a href="#reviews">รีวิว</a>
-<a href="#faq">FAQ</a>
-<a href="#booking">จองคิว</a>
-<a href="#tracking">ติดตามงาน</a>
-<a href="#contact">ติดต่อ</a>
 
-</nav>
+    <nav
+      class="nav-links"
+      id="navLinks">
 
-</div>
+      <a href="#home">หน้าแรก</a>
+      <a href="#services">บริการ</a>
+      <a href="#prices">ราคา</a>
+      <a href="#works">ผลงาน</a>
+      <a href="#promotions">โปรโมชั่น</a>
+      <a href="#about">เกี่ยวกับเรา</a>
+      <a href="#reviews">รีวิว</a>
+      <a href="#faq">FAQ</a>
+      <a href="#booking">จองคิว</a>
+      <a href="#tracking">ติดตามงาน</a>
+      <a href="#contact">ติดต่อ</a>
+
+    </nav>
+
+  </div>
 
 </header>
 
-<!-- ================= MAIN ================= -->
 
 <main>
 
-<!-- HERO -->
 
-<section class="hero" id="home">
+<!-- =========================
+     HERO
+========================= -->
 
-<div class="container hero-grid">
+<section
+  class="hero"
+  id="home">
 
-<div>
+  <div class="container hero-grid">
 
-<div class="badge">
-⚡ PREMIUM AUTOMOTIVE SERVICE
-</div>
+    <div>
 
-<h1>
-<span class="gradient">เอ็มออโต้</span><br>
-แพลงท์เซอร์วิส
-</h1>
+      <div class="badge">
+        ⚡ PREMIUM AUTOMOTIVE SERVICE
+      </div>
 
-<h2>“ครบจบที่เดียว!”</h2>
 
-<p>
-ศูนย์บริการรถยนต์ครบวงจร
-ดูแลรถของคุณด้วยความใส่ใจ
-โดยช่างเอ็ม พร้อมบริการหลากหลายด้าน
-ตั้งแต่เครื่องเสียง ทำสี เครื่องยนต์
-ช่วงล่าง แอร์ ติดฟิล์ม และ VIP Service
-</p>
+      <h1>
 
-<div class="buttons">
+        <span class="gradient">
+          เอ็มออโต้
+        </span>
 
-<a class="btn btn-blue"
-href="tel:0819349483">
-📞 โทรหาเรา
-</a>
+        <br>
 
-<a class="btn btn-gold"
-href="#booking">
-📅 จองคิว
-</a>
+        แพลงท์เซอร์วิส
 
-<a class="btn btn-red"
-href="https://www.facebook.com/share/1LZN5nJjKJ/?mibextid=wwXIfr"
-target="_blank">
-📘 Facebook
-</a>
+      </h1>
 
-<a class="btn btn-dark"
-href="#contact">
-📍 ติดต่อร้าน
-</a>
 
-</div>
+      <h2>
+        “ครบจบที่เดียว!”
+      </h2>
 
-</div>
 
-<div class="hero-logo">
+      <p>
+        ศูนย์บริการรถยนต์ที่รวมงานดูแลรถ
+        เครื่องเสียง ทำสี เครื่องยนต์ ช่วงล่าง
+        แอร์ ติดฟิล์ม และบริการ VIP
+        ไว้ในที่เดียว
+      </p>
 
-<img
-src="https://i.ibb.co/35h779N8/6b219dcee969c322f7ffe86f284c55b2.jpg"
-alt="เอ็มออโต้ แพลงท์เซอร์วิส">
 
-</div>
+      <div class="buttons">
 
-</div>
+        <a
+          class="btn btn-primary"
+          href="tel:0819349483">
+          📞 โทรหาร้าน
+        </a>
+
+        <a
+          class="btn btn-gold"
+          href="#booking">
+          📅 จองคิว
+        </a>
+
+        <a
+          class="btn btn-red"
+          href="https://www.facebook.com/share/1LZN5nJjKJ/?mibextid=wwXIfr"
+          target="_blank">
+          📘 Facebook
+        </a>
+
+        <a
+          class="btn btn-dark"
+          href="#contact">
+          📍 ติดต่อร้าน
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <div class="hero-card">
+
+      <img
+        class="hero-logo"
+        src="https://i.ibb.co/35h779N8/6b219dcee969c322f7ffe86f284c55b2.jpg"
+        alt="โลโก้ เอ็มออโต้ แพลงท์เซอร์วิส"
+      >
+
+      <div class="hero-card-info">
+
+        <b>
+          M AUTO PLANT SERVICE
+        </b>
+
+        <br>
+
+        ดูแลรถของคุณเหมือนรถของเรา
+
+      </div>
+
+    </div>
+
+  </div>
 
 </section>
 
-<!-- SERVICES -->
+
+<!-- =========================
+     SERVICES
+========================= -->
 
 <section id="services">
 
-<div class="container">
+  <div class="container">
 
-<div class="section-head">
+    <div class="section-head">
 
-<div class="kicker">OUR SERVICES</div>
+      <div class="kicker">
+        OUR SERVICES
+      </div>
 
-<h2>บริการของเรา</h2>
+      <h2>
+        บริการของเรา
+      </h2>
 
-<p>
-รวมบริการดูแลรถยนต์ไว้ครบในที่เดียว
-</p>
+      <p>
+        ครบทุกงานดูแลรถยนต์ในที่เดียว
+      </p>
 
-</div>
+    </div>
 
-<div class="grid services">
 
-<div class="card">
+    <div class="grid services">
 
-<div class="service-icon">🔊</div>
 
-<h3>เครื่องเสียงรถยนต์</h3>
+      <div class="card">
 
-<ul>
-<li>เครื่องเสียง</li>
-<li>ลำโพง</li>
-<li>ซับวูฟเฟอร์</li>
-<li>เพาเวอร์แอมป์</li>
-<li>DSP</li>
-<li>Multimedia</li>
-<li>จูนเสียง</li>
-</ul>
+        <div class="service-icon">
+          🔊
+        </div>
 
-</div>
+        <h3>
+          เครื่องเสียงรถยนต์
+        </h3>
 
-<div class="card">
+        <ul>
+          <li>เครื่องเสียง</li>
+          <li>ลำโพง</li>
+          <li>ซับวูฟเฟอร์</li>
+          <li>เพาเวอร์แอมป์</li>
+          <li>DSP</li>
+          <li>Multimedia</li>
+          <li>จูนเสียง</li>
+        </ul>
 
-<div class="service-icon">🎨</div>
+      </div>
 
-<h3>ทำสีรถ</h3>
 
-<ul>
-<li>ทำสีทั้งคัน</li>
-<li>ทำสีเฉพาะชิ้น</li>
-<li>ซ่อมสี</li>
-<li>เก็บสี</li>
-<li>ขัดสี</li>
-<li>ฟื้นฟูสีรถ</li>
-</ul>
+      <div class="card">
 
-</div>
+        <div class="service-icon">
+          🎨
+        </div>
 
-<div class="card">
+        <h3>
+          ทำสีรถ
+        </h3>
 
-<div class="service-icon">🔧</div>
+        <ul>
+          <li>ทำสีทั้งคัน</li>
+          <li>ทำสีเฉพาะชิ้น</li>
+          <li>เก็บสี</li>
+          <li>ซ่อมสี</li>
+          <li>ขัดสี</li>
+          <li>ฟื้นฟูสภาพสี</li>
+        </ul>
 
-<h3>เครื่องยนต์</h3>
+      </div>
 
-<ul>
-<li>ตรวจเช็กเครื่องยนต์</li>
-<li>วิเคราะห์อาการ</li>
-<li>บำรุงรักษา</li>
-<li>เปลี่ยนอะไหล่</li>
-<li>ตรวจระบบ</li>
-</ul>
 
-</div>
+      <div class="card">
 
-<div class="card">
+        <div class="service-icon">
+          🔧
+        </div>
 
-<div class="service-icon">⚙️</div>
+        <h3>
+          เครื่องยนต์
+        </h3>
 
-<h3>ช่วงล่าง</h3>
+        <ul>
+          <li>ตรวจเช็กเครื่องยนต์</li>
+          <li>วิเคราะห์อาการ</li>
+          <li>บำรุงรักษา</li>
+          <li>เปลี่ยนอะไหล่</li>
+          <li>ตรวจเช็กระบบ</li>
+        </ul>
 
-<ul>
-<li>โช้คอัพ</li>
-<li>สปริง</li>
-<li>ลูกหมาก</li>
-<li>เบรก</li>
-<li>พวงมาลัย</li>
-</ul>
+      </div>
 
-</div>
 
-<div class="card">
+      <div class="card">
 
-<div class="service-icon">❄️</div>
+        <div class="service-icon">
+          ⚙️
+        </div>
 
-<h3>แอร์รถยนต์</h3>
+        <h3>
+          ช่วงล่าง
+        </h3>
 
-<ul>
-<li>ตรวจระบบแอร์</li>
-<li>เติมน้ำยา</li>
-<li>ตรวจรอยรั่ว</li>
-<li>ล้างระบบ</li>
-<li>ซ่อมระบบแอร์</li>
-</ul>
+        <ul>
+          <li>โช้คอัพ</li>
+          <li>สปริง</li>
+          <li>ลูกหมาก</li>
+          <li>เบรก</li>
+          <li>พวงมาลัย</li>
+        </ul>
 
-</div>
+      </div>
 
-<div class="card">
 
-<div class="service-icon">🪟</div>
+      <div class="card">
 
-<h3>ติดฟิล์ม</h3>
+        <div class="service-icon">
+          ❄️
+        </div>
 
-<ul>
-<li>ฟิล์มรถยนต์</li>
-<li>ฟิล์มกรองแสง</li>
-<li>ฟิล์มกันความร้อน</li>
-<li>ฟิล์มรอบคัน</li>
-</ul>
+        <h3>
+          แอร์รถยนต์
+        </h3>
 
-</div>
+        <ul>
+          <li>ตรวจระบบแอร์</li>
+          <li>เติมน้ำยา</li>
+          <li>ตรวจหารอยรั่ว</li>
+          <li>ล้างระบบ</li>
+          <li>ซ่อมระบบแอร์</li>
+        </ul>
 
-<div class="card">
+      </div>
 
-<div class="service-icon">👑</div>
 
-<h3>VIP Service</h3>
+      <div class="card">
 
-<p>
-บริการดูแลรถแบบ Premium
-สำหรับลูกค้าที่ต้องการความใส่ใจเป็นพิเศษ
-</p>
+        <div class="service-icon">
+          🪟
+        </div>
 
-</div>
+        <h3>
+          ติดฟิล์ม
+        </h3>
 
-<div class="card">
+        <ul>
+          <li>ฟิล์มรถยนต์</li>
+          <li>ฟิล์มกรองแสง</li>
+          <li>ฟิล์มกันความร้อน</li>
+          <li>ฟิล์มรอบคัน</li>
+        </ul>
 
-<div class="service-icon">🚗</div>
+      </div>
 
-<h3>ตรวจเช็กสภาพรถ</h3>
 
-<p>
-ตรวจสอบอาการเบื้องต้น
-และประเมินงานก่อนเข้ารับบริการ
-</p>
+      <div class="card">
 
-</div>
+        <div class="service-icon">
+          👑
+        </div>
 
-</div>
+        <h3>
+          VIP Service
+        </h3>
 
-</div>
+        <p>
+          บริการดูแลรถแบบ Premium
+          สำหรับลูกค้าที่ต้องการการดูแลเป็นพิเศษ
+        </p>
+
+      </div>
+
+
+      <div class="card">
+
+        <div class="service-icon">
+          🚘
+        </div>
+
+        <h3>
+          ตรวจเช็กรถ
+        </h3>
+
+        <p>
+          ตรวจสอบสภาพรถและวิเคราะห์ปัญหา
+          ก่อนเข้ารับบริการ
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
 
 </section>
 
-<!-- PRICE -->
+
+<!-- =========================
+     PRICE
+========================= -->
 
 <section id="prices">
 
-<div class="container">
+  <div class="container">
 
-<div class="section-head">
+    <div class="section-head">
 
-<div class="kicker">SERVICE PRICE</div>
+      <div class="kicker">
+        SERVICE PRICE
+      </div>
 
-<h2>ราคา / ค่าบริการ</h2>
+      <h2>
+        ราคา / ค่าบริการ
+      </h2>
 
-<p>
-ราคาจริงขึ้นอยู่กับรุ่นรถ อาการ และรายละเอียดของงาน
-กรุณาสอบถามร้านก่อนเข้ารับบริการ
-</p>
+      <p>
+        ราคาจริงสามารถสอบถามร้านก่อนเข้ารับบริการ
+      </p>
 
-</div>
+    </div>
 
-<div class="grid price-grid">
 
-<div class="card">
-<h3>🔊 เครื่องเสียง</h3>
-<p>เครื่องเสียง / ลำโพง / DSP / Multimedia</p>
-<div class="price">สอบถามราคา</div>
-</div>
+    <div class="grid price-grid">
 
-<div class="card">
-<h3>🎨 ทำสีรถ</h3>
-<p>ทำสี / ซ่อมสี / ขัดสี</p>
-<div class="price">ประเมินราคาก่อนทำ</div>
-</div>
+      <div class="card">
+        <h3>🔊 เครื่องเสียง</h3>
+        <p>เครื่องเสียง / ลำโพง / DSP / Multimedia</p>
+        <div class="price">สอบถามราคา</div>
+      </div>
 
-<div class="card">
-<h3>🔧 เครื่องยนต์</h3>
-<p>ตรวจเช็ก / วิเคราะห์ / ซ่อม</p>
-<div class="price">สอบถามราคา</div>
-</div>
+      <div class="card">
+        <h3>🎨 ทำสี</h3>
+        <p>ทำสี / ซ่อมสี / ขัดสี</p>
+        <div class="price">สอบถามราคา</div>
+      </div>
 
-<div class="card">
-<h3>⚙️ ช่วงล่าง</h3>
-<p>โช้ค / สปริง / ลูกหมาก / เบรก</p>
-<div class="price">สอบถามราคา</div>
-</div>
+      <div class="card">
+        <h3>🔧 เครื่องยนต์</h3>
+        <p>ตรวจเช็ก / วิเคราะห์ / ซ่อม</p>
+        <div class="price">สอบถามราคา</div>
+      </div>
 
-<div class="card">
-<h3>❄️ แอร์รถยนต์</h3>
-<p>ตรวจระบบ / เติมน้ำยา / ซ่อม</p>
-<div class="price">สอบถามราคา</div>
-</div>
+      <div class="card">
+        <h3>⚙️ ช่วงล่าง</h3>
+        <p>โช้ค / สปริง / ลูกหมาก / เบรก</p>
+        <div class="price">สอบถามราคา</div>
+      </div>
 
-<div class="card">
-<h3>🪟 ติดฟิล์ม</h3>
-<p>ฟิล์มกรองแสง / กันความร้อน</p>
-<div class="price">สอบถามราคา</div>
-</div>
+      <div class="card">
+        <h3>❄️ แอร์</h3>
+        <p>ตรวจระบบ / เติมน้ำยา / ซ่อม</p>
+        <div class="price">สอบถามราคา</div>
+      </div>
 
-</div>
+      <div class="card">
+        <h3>🪟 ฟิล์ม</h3>
+        <p>ฟิล์มกรองแสง / กันความร้อน</p>
+        <div class="price">สอบถามราคา</div>
+      </div>
 
-</div>
+    </div>
+
+  </div>
 
 </section>
 
-<!-- WORKS -->
+
+<!-- =========================
+     WORKS
+========================= -->
 
 <section id="works">
 
-<div class="container">
+  <div class="container">
 
-<div class="section-head">
+    <div class="section-head">
 
-<div class="kicker">OUR WORKS</div>
+      <div class="kicker">
+        OUR WORKS
+      </div>
 
-<h2>ผลงานของเรา</h2>
+      <h2>
+        ผลงานของเรา
+      </h2>
 
-<p>
-พื้นที่สำหรับเพิ่มรูปผลงานจริงของร้าน
-</p>
+      <p>
+        รวมผลงานของ เอ็มออโต้ แพลงท์เซอร์วิส
+      </p>
 
-</div>
+    </div>
 
-<div class="buttons">
 
-<button class="btn btn-blue">ทั้งหมด</button>
-<button class="btn btn-dark">เครื่องเสียง</button>
-<button class="btn btn-dark">ทำสี</button>
-<button class="btn btn-dark">เครื่องยนต์</button>
-<button class="btn btn-dark">ช่วงล่าง</button>
-<button class="btn btn-dark">แอร์</button>
-<button class="btn btn-dark">ติดฟิล์ม</button>
-<button class="btn btn-dark">VIP</button>
+    <div class="buttons">
 
-</div>
+      <button
+        class="btn btn-primary filter active"
+        onclick="filterWorks('all',this)">
+        ทั้งหมด
+      </button>
 
-<div class="grid gallery" style="margin-top:25px">
+      <button
+        class="btn btn-dark filter"
+        onclick="filterWorks('audio',this)">
+        🔊 เครื่องเสียง
+      </button>
 
-<div class="gallery-item">
-📷<br>
-เพิ่มรูปผลงาน
-</div>
+      <button
+        class="btn btn-dark filter"
+        onclick="filterWorks('paint',this)">
+        🎨 ทำสี
+      </button>
 
-<div class="gallery-item">
-📷<br>
-Before / After
-</div>
+      <button
+        class="btn btn-dark filter"
+        onclick="filterWorks('engine',this)">
+        🔧 เครื่องยนต์
+      </button>
 
-<div class="gallery-item">
-📷<br>
-ผลงานเครื่องเสียง
-</div>
+      <button
+        class="btn btn-dark filter"
+        onclick="filterWorks('suspension',this)">
+        ⚙️ ช่วงล่าง
+      </button>
 
-<div class="gallery-item">
-📷<br>
-ผลงานทำสี
-</div>
+      <button
+        class="btn btn-dark filter"
+        onclick="filterWorks('air',this)">
+        ❄️ แอร์
+      </button>
 
-<div class="gallery-item">
-📷<br>
-ผลงานเครื่องยนต์
-</div>
+      <button
+        class="btn btn-dark filter"
+        onclick="filterWorks('film',this)">
+        🪟 ฟิล์ม
+      </button>
 
-<div class="gallery-item">
-📷<br>
-ผลงาน VIP
-</div>
+      <button
+        class="btn btn-dark filter"
+        onclick="filterWorks('vip',this)">
+        👑 VIP
+      </button>
 
-</div>
+    </div>
 
-</div>
+
+    <div
+      class="grid gallery"
+      id="workGallery">
+
+
+      <!-- WORK 1 -->
+
+      <div
+        class="work-card"
+        data-category="audio">
+
+        <div
+          class="work-image"
+          onclick="openImage(this.querySelector('img').src)">
+
+          <img
+            src="https://i.ibb.co/35h779N8/6b219dcee969c322f7ffe86f284c55b2.jpg"
+            alt="ผลงานเครื่องเสียงรถยนต์"
+            loading="lazy">
+
+        </div>
+
+        <div class="work-info">
+
+          <span>
+            🔊 เครื่องเสียงรถยนต์
+          </span>
+
+          <h3>
+            งานเครื่องเสียง
+          </h3>
+
+          <p>
+            ผลงานของร้าน
+            เอ็มออโต้ แพลงท์เซอร์วิส
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <!-- WORK 2 -->
+
+      <div
+        class="work-card"
+        data-category="paint">
+
+        <div
+          class="work-image"
+          onclick="openImage(this.querySelector('img').src)">
+
+          <img
+            src="https://i.ibb.co/35h779N8/6b219dcee969c322f7ffe86f284c55b2.jpg"
+            alt="ผลงานทำสีรถ"
+            loading="lazy">
+
+        </div>
+
+        <div class="work-info">
+
+          <span>
+            🎨 ทำสีรถ
+          </span>
+
+          <h3>
+            งานทำสีรถ
+          </h3>
+
+          <p>
+            งานซ่อมสีและฟื้นฟูสภาพรถ
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <!-- WORK 3 -->
+
+      <div
+        class="work-card"
+        data-category="engine">
+
+        <div
+          class="work-image"
+          onclick="openImage(this.querySelector('img').src)">
+
+          <img
+            src="https://i.ibb.co/35h779N8/6b219dcee969c322f7ffe86f284c55b2.jpg"
+            alt="ผลงานเครื่องยนต์"
+            loading="lazy">
+
+        </div>
+
+        <div class="work-info">
+
+          <span>
+            🔧 เครื่องยนต์
+          </span>
+
+          <h3>
+            งานเครื่องยนต์
+          </h3>
+
+          <p>
+            ตรวจเช็กและบำรุงรักษาระบบเครื่องยนต์
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <!-- WORK 4 -->
+
+      <div
+        class="work-card"
+        data-category="suspension">
+
+        <div
+          class="work-image"
+          onclick="openImage(this.querySelector('img').src)">
+
+          <img
+            src="https://i.ibb.co/35h779N8/6b219dcee969c322f7ffe86f284c55b2.jpg"
+            alt="ผลงานช่วงล่าง"
+            loading="lazy">
+
+        </div>
+
+        <div class="work-info">
+
+          <span>
+            ⚙️ ช่วงล่าง
+          </span>
+
+          <h3>
+            งานช่วงล่าง
+          </h3>
+
+          <p>
+            ตรวจเช็กและดูแลระบบช่วงล่าง
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <!-- WORK 5 -->
+
+      <div
+        class="work-card"
+        data-category="air">
+
+        <div
+          class="work-image"
+          onclick="openImage(this.querySelector('img').src)">
+
+          <img
+            src="https://i.ibb.co/35h779N8/6b219dcee969c322f7ffe86f284c55b2.jpg"
+            alt="ผลงานแอร์รถยนต์"
+            loading="lazy">
+
+        </div>
+
+        <div class="work-info">
+
+          <span>
+            ❄️ แอร์รถยนต์
+          </span>
+
+          <h3>
+            งานระบบแอร์
+          </h3>
+
+          <p>
+            ตรวจสอบและซ่อมระบบแอร์รถยนต์
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <!-- WORK 6 -->
+
+      <div
+        class="work-card"
+        data-category="film">
+
+        <div
+          class="work-image"
+          onclick="openImage(this.querySelector('img').src)">
+
+          <img
+            src="https://i.ibb.co/35h779N8/6b219dcee969c322f7ffe86f284c55b2.jpg"
+            alt="ผลงานติดฟิล์ม"
+            loading="lazy">
+
+        </div>
+
+        <div class="work-info">
+
+          <span>
+            🪟 ติดฟิล์ม
+          </span>
+
+          <h3>
+            งานติดฟิล์ม
+          </h3>
+
+          <p>
+            ติดฟิล์มรถยนต์และฟิล์มกรองแสง
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <!-- WORK 7 -->
+
+      <div
+        class="work-card"
+        data-category="vip">
+
+        <div
+          class="work-image"
+          onclick="openImage(this.querySelector('img').src)">
+
+          <img
+            src="https://i.ibb.co/35h779N8/6b219dcee969c322f7ffe86f284c55b2.jpg"
+            alt="VIP Service"
+            loading="lazy">
+
+        </div>
+
+        <div class="work-info">
+
+          <span>
+            👑 VIP SERVICE
+          </span>
+
+          <h3>
+            งานบริการ VIP
+          </h3>
+
+          <p>
+            บริการดูแลรถแบบ Premium
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <!-- WORK 8 -->
+
+      <div
+        class="work-card"
+        data-category="all">
+
+        <div
+          class="work-image"
+          onclick="openImage(this.querySelector('img').src)">
+
+          <img
+            src="https://i.ibb.co/35h779N8/6b219dcee969c322f7ffe86f284c55b2.jpg"
+            alt="เอ็มออโต้ แพลงท์เซอร์วิส"
+            loading="lazy">
+
+        </div>
+
+        <div class="work-info">
+
+          <span>
+            🚗 M AUTO
+          </span>
+
+          <h3>
+            เอ็มออโต้ แพลงท์เซอร์วิส
+          </h3>
+
+          <p>
+            “ครบจบที่เดียว!”
+          </p>
+
+        </div>
+
+      </div>
+
+
+    </div>
+
+  </div>
 
 </section>
 
-<!-- PROMOTION -->
+
+<!-- =========================
+     PROMOTION
+========================= -->
 
 <section id="promotions">
 
-<div class="container">
+  <div class="container">
 
-<div class="section-head">
+    <div class="section-head">
 
-<div class="kicker">PROMOTIONS</div>
+      <div class="kicker">
+        PROMOTIONS
+      </div>
 
-<h2>โปรโมชั่น</h2>
+      <h2>
+        โปรโมชั่น
+      </h2>
 
-<p>
-โปรโมชั่นและสิทธิพิเศษจากทางร้าน
-</p>
+      <p>
+        โปรโมชั่นและข้อเสนอพิเศษจากร้าน
+      </p>
 
-</div>
+    </div>
 
-<div class="card">
 
-<h3>🔥 โปรโมชั่นประจำเดือน</h3>
+    <div class="promo">
 
-<p style="margin-top:10px">
-ยังไม่มีข้อมูลโปรโมชั่นที่ได้รับการยืนยัน
-</p>
+      <h3>
+        🔥 โปรโมชั่นจากร้าน
+      </h3>
 
-<div class="buttons">
+      <p style="margin-top:10px;color:var(--muted)">
+        ยังไม่มีโปรโมชั่นที่ได้รับการยืนยัน
+        กรุณาติดต่อร้านเพื่อสอบถามโปรโมชั่นล่าสุด
+      </p>
 
-<a href="tel:0819349483"
-class="btn btn-gold">
-📞 สอบถามโปรโมชั่น
-</a>
+      <div class="buttons">
 
-</div>
+        <a
+          class="btn btn-gold"
+          href="tel:0819349483">
+          📞 สอบถามโปรโมชั่น
+        </a>
 
-</div>
+      </div>
 
-</div>
+    </div>
+
+  </div>
 
 </section>
 
-<!-- ABOUT -->
+
+<!-- =========================
+     ABOUT
+========================= -->
 
 <section id="about">
 
-<div class="container">
+  <div class="container">
 
-<div class="section-head">
+    <div class="section-head">
 
-<div class="kicker">ABOUT US</div>
+      <div class="kicker">
+        ABOUT US
+      </div>
 
-<h2>เกี่ยวกับเรา</h2>
+      <h2>
+        เกี่ยวกับเรา
+      </h2>
 
-</div>
+    </div>
 
-<div class="about">
 
-<div class="highlight">
+    <div class="about">
 
-<strong>ครบจบที่เดียว!</strong>
 
-<p>
-เอ็มออโต้ แพลงท์เซอร์วิส
-ศูนย์บริการรถยนต์ที่ให้บริการหลากหลายด้าน
-พร้อมดูแลรถของลูกค้าด้วยความใส่ใจ
-</p>
+      <div class="highlight">
 
-</div>
+        <strong>
+          ครบจบที่เดียว!
+        </strong>
 
-<div class="highlight">
+        <p>
+          เอ็มออโต้ แพลงท์เซอร์วิส
+          ศูนย์บริการรถยนต์ที่ให้บริการ
+          และดูแลรถยนต์หลากหลายด้าน
+          โดยเน้นการบริการและการดูแลรถ
+          อย่างใส่ใจ
+        </p>
 
-<h3>ข้อมูลร้าน</h3>
+      </div>
 
-<p style="margin-top:15px">
 
-<b>ชื่อร้าน:</b>
-เอ็มออโต้ แพลงท์เซอร์วิส
+      <div class="highlight">
 
-<br>
+        <h3>
+          ข้อมูลร้าน
+        </h3>
 
-<b>ช่าง:</b>
-ช่างเอ็ม
+        <p style="margin-top:15px">
 
-<br>
+          <b>ชื่อร้าน:</b>
+          เอ็มออโต้ แพลงท์เซอร์วิส
 
-<b>โทร:</b>
-081-934-9483
+          <br>
 
-<br>
+          <b>ช่าง:</b>
+          ช่างเอ็ม
 
-<b>ที่อยู่:</b>
-53 หมู่ 6 ตำบลสายห้วยแก้ว
-อำเภอบ้านหมี่ จังหวัดลพบุรี
+          <br>
 
-</p>
+          <b>โทร:</b>
+          081-934-9483
 
-</div>
+          <br>
 
-</div>
+          <b>ที่อยู่:</b>
+          53 หมู่ 6 ตำบลสายห้วยแก้ว
+          อำเภอบ้านหมี่
+          จังหวัดลพบุรี
 
-</div>
+        </p>
+
+      </div>
+
+
+    </div>
+
+  </div>
 
 </section>
 
-<!-- REVIEWS -->
+
+<!-- =========================
+     TEAM
+========================= -->
+
+<section id="team">
+
+  <div class="container">
+
+    <div class="section-head">
+
+      <div class="kicker">
+        OUR TEAM
+      </div>
+
+      <h2>
+        ทีมงาน
+      </h2>
+
+      <p>
+        ทีมงานของเอ็มออโต้ แพลงท์เซอร์วิส
+      </p>
+
+    </div>
+
+
+    <div class="grid team-grid">
+
+      <div class="card">
+
+        <div class="team-photo">
+
+          <img
+            src="https://i.ibb.co/35h779N8/6b219dcee969c322f7ffe86f284c55b2.jpg"
+            alt="ช่างเอ็ม">
+
+        </div>
+
+        <h3>
+          ช่างเอ็ม
+        </h3>
+
+        <p>
+          ช่าง / ผู้ดูแลร้าน
+        </p>
+
+      </div>
+
+
+      <div class="card">
+
+        <div class="team-photo">
+
+          <img
+            src="https://i.ibb.co/35h779N8/6b219dcee969c322f7ffe86f284c55b2.jpg"
+            alt="ทีมงาน">
+
+        </div>
+
+        <h3>
+          ทีมงาน
+        </h3>
+
+        <p>
+          ทีมงานบริการรถยนต์
+        </p>
+
+      </div>
+
+
+      <div class="card">
+
+        <div class="team-photo">
+
+          <img
+            src="https://i.ibb.co/35h779N8/6b219dcee969c322f7ffe86f284c55b2.jpg"
+            alt="เอ็มออโต้">
+
+        </div>
+
+        <h3>
+          M AUTO SERVICE
+        </h3>
+
+        <p>
+          Professional Automotive Service
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     REVIEWS
+========================= -->
 
 <section id="reviews">
 
-<div class="container">
+  <div class="container">
 
-<div class="section-head">
+    <div class="section-head">
 
-<div class="kicker">CUSTOMER REVIEWS</div>
+      <div class="kicker">
+        CUSTOMER REVIEWS
+      </div>
 
-<h2>รีวิวจากลูกค้า</h2>
+      <h2>
+        รีวิวจากลูกค้า
+      </h2>
 
-<p>
-พื้นที่สำหรับรีวิวจริงจากลูกค้า
-</p>
+      <p>
+        ระบบรองรับการเพิ่มรีวิวจริงจากลูกค้า
+      </p>
 
-</div>
+    </div>
 
-<div class="grid review-grid">
 
-<div class="card">
+    <div class="grid review-grid">
 
-<div class="stars">★★★★★</div>
 
-<h3>รอรีวิวจากลูกค้า</h3>
+      <div class="card">
 
-<p>
-สามารถเพิ่มรีวิวจริงภายหลัง
-</p>
+        <div class="stars">
+          ★★★★★
+        </div>
 
-</div>
+        <h3 style="margin-top:10px">
+          รีวิวจากลูกค้า
+        </h3>
 
-<div class="card">
+        <p>
+          พื้นที่สำหรับเพิ่มรีวิวจริง
+          จากลูกค้าของร้าน
+        </p>
 
-<div class="stars">★★★★★</div>
+      </div>
 
-<h3>รอรีวิวจากลูกค้า</h3>
 
-<p>
-รองรับคะแนน 1–5 ดาว
-</p>
+      <div class="card">
 
-</div>
+        <div class="stars">
+          ★★★★★
+        </div>
 
-<div class="card">
+        <h3 style="margin-top:10px">
+          รีวิวบริการ
+        </h3>
 
-<div class="stars">★★★★★</div>
+        <p>
+          สามารถเพิ่มคะแนน
+          และข้อความรีวิวภายหลัง
+        </p>
 
-<h3>รอรีวิวจากลูกค้า</h3>
+      </div>
 
-<p>
-สามารถเพิ่มรูปภาพผลงานได้
-</p>
 
-</div>
+      <div class="card">
 
-</div>
+        <div class="stars">
+          ★★★★★
+        </div>
 
-</div>
+        <h3 style="margin-top:10px">
+          รีวิวล่าสุด
+        </h3>
+
+        <p>
+          ระบบรองรับการแสดงรีวิวล่าสุด
+        </p>
+
+      </div>
+
+
+    </div>
+
+  </div>
 
 </section>
 
-<!-- FAQ -->
+
+<!-- =========================
+     FAQ
+========================= -->
 
 <section id="faq">
 
-<div class="container">
+  <div class="container">
 
-<div class="section-head">
+    <div class="section-head">
 
-<div class="kicker">FAQ</div>
+      <div class="kicker">
+        FAQ
+      </div>
 
-<h2>คำถามที่พบบ่อย</h2>
+      <h2>
+        คำถามที่พบบ่อย
+      </h2>
 
-</div>
+    </div>
 
-<div class="faq">
 
-<details>
-<summary>ร้านอยู่ที่ไหน?</summary>
-<p>
-53 หมู่ 6 ตำบลสายห้วยแก้ว
-อำเภอบ้านหมี่ จังหวัดลพบุรี
-</p>
-</details>
+    <div class="faq">
 
-<details>
-<summary>ติดต่อร้านอย่างไร?</summary>
-<p>
-โทร 081-934-9483
-หรือ Facebook ของร้าน
-</p>
-</details>
+      <details>
+        <summary>
+          ร้านอยู่ที่ไหน?
+        </summary>
 
-<details>
-<summary>ต้องจองคิวหรือไม่?</summary>
-<p>
-แนะนำให้จองคิวล่วงหน้าเพื่อให้ร้านตรวจสอบคิวและรายละเอียดงาน
-</p>
-</details>
+        <p>
+          53 หมู่ 6 ตำบลสายห้วยแก้ว
+          อำเภอบ้านหมี่
+          จังหวัดลพบุรี
+        </p>
 
-<details>
-<summary>มีบริการอะไรบ้าง?</summary>
-<p>
-เครื่องเสียง ทำสี เครื่องยนต์ ช่วงล่าง แอร์รถยนต์
-ติดฟิล์ม และ VIP Service
-</p>
-</details>
+      </details>
 
-<details>
-<summary>สามารถสอบถามราคาก่อนได้หรือไม่?</summary>
-<p>
-สามารถสอบถามราคาและรายละเอียดงานได้ที่
-081-934-9483
-</p>
-</details>
 
-</div>
+      <details>
 
-</div>
+        <summary>
+          ติดต่อร้านอย่างไร?
+        </summary>
+
+        <p>
+          โทร 081-934-9483
+          หรือ Facebook ของร้าน
+        </p>
+
+      </details>
+
+
+      <details>
+
+        <summary>
+          ต้องจองคิวหรือไม่?
+        </summary>
+
+        <p>
+          สามารถจองคิวผ่านแบบฟอร์ม
+          บนเว็บไซต์ได้
+        </p>
+
+      </details>
+
+
+      <details>
+
+        <summary>
+          มีบริการอะไรบ้าง?
+        </summary>
+
+        <p>
+          เครื่องเสียง ทำสี เครื่องยนต์
+          ช่วงล่าง แอร์ ติดฟิล์ม
+          และ VIP Service
+        </p>
+
+      </details>
+
+
+      <details>
+
+        <summary>
+          สอบถามราคาก่อนได้หรือไม่?
+        </summary>
+
+        <p>
+          สามารถโทรสอบถามร้านได้ที่
+          081-934-9483
+        </p>
+
+      </details>
+
+
+    </div>
+
+  </div>
 
 </section>
 
-<!-- BOOKING -->
+
+<!-- =========================
+     BOOKING
+========================= -->
 
 <section id="booking">
 
-<div class="container">
+  <div class="container">
 
-<div class="section-head">
+    <div class="section-head">
 
-<div class="kicker">BOOKING SYSTEM</div>
+      <div class="kicker">
+        BOOKING SYSTEM
+      </div>
 
-<h2>📅 จองคิวเข้ารับบริการ</h2>
+      <h2>
+        จองคิวเข้ารับบริการ
+      </h2>
 
-<p>
-กรอกข้อมูลด้านล่างเพื่อสร้าง Booking ID
-</p>
+      <p>
+        กรอกข้อมูลเพื่อสร้างรายการจอง
+      </p>
 
-</div>
+    </div>
 
-<div class="contact-card">
 
-<form class="form" onsubmit="createBooking(event)">
+    <div class="contact-card">
 
-<div class="form-grid">
+      <form
+        class="form"
+        onsubmit="createBooking(event)">
 
-<input
-id="customerName"
-required
-placeholder="ชื่อ-นามสกุล">
 
-<input
-id="phone"
-required
-type="tel"
-placeholder="เบอร์โทร">
+        <div class="form-grid">
 
-</div>
+          <input
+            id="customerName"
+            required
+            placeholder="ชื่อ-นามสกุล">
 
-<div class="form-grid">
+          <input
+            id="phone"
+            required
+            type="tel"
+            placeholder="เบอร์โทร">
 
-<input
-id="plate"
-placeholder="ทะเบียนรถ">
+        </div>
 
-<input
-id="brand"
-placeholder="ยี่ห้อรถ">
 
-</div>
+        <div class="form-grid">
 
-<div class="form-grid">
+          <input
+            id="plate"
+            placeholder="ทะเบียนรถ">
 
-<input
-id="model"
-placeholder="รุ่นรถ">
+          <input
+            id="brand"
+            placeholder="ยี่ห้อรถ">
 
-<input
-id="year"
-placeholder="ปีรถ">
+        </div>
 
-</div>
 
-<select id="service" required>
+        <div class="form-grid">
 
-<option value="">
-เลือกบริการ
-</option>
+          <input
+            id="model"
+            placeholder="รุ่นรถ">
 
-<option>เครื่องเสียงรถยนต์</option>
-<option>ทำสีรถ</option>
-<option>เครื่องยนต์</option>
-<option>ช่วงล่าง</option>
-<option>แอร์รถยนต์</option>
-<option>ติดฟิล์ม</option>
-<option>VIP Service</option>
+          <input
+            id="year"
+            placeholder="ปีรถ">
 
-</select>
+        </div>
 
-<div class="form-grid">
 
-<input
-id="date"
-type="date"
-required>
+        <select
+          id="service"
+          required>
 
-<input
-id="time"
-type="time"
-required>
+          <option value="">
+            เลือกบริการ
+          </option>
 
-</div>
+          <option>
+            เครื่องเสียงรถยนต์
+          </option>
 
-<textarea
-id="detail"
-placeholder="รายละเอียดงานที่ต้องการ">
-</textarea>
+          <option>
+            ทำสีรถ
+          </option>
 
-<button
-class="btn btn-blue"
-type="submit">
+          <option>
+            เครื่องยนต์
+          </option>
 
-📅 ส่งข้อมูลจองคิว
+          <option>
+            ช่วงล่าง
+          </option>
 
-</button>
+          <option>
+            แอร์รถยนต์
+          </option>
 
-</form>
+          <option>
+            ติดฟิล์ม
+          </option>
 
-<div
-class="booking-result"
-id="bookingResult">
-</div>
+          <option>
+            VIP Service
+          </option>
 
-</div>
+        </select>
 
-</div>
+
+        <div class="form-grid">
+
+          <input
+            id="date"
+            type="date"
+            required>
+
+          <input
+            id="time"
+            type="time"
+            required>
+
+        </div>
+
+
+        <textarea
+          id="detail"
+          placeholder="รายละเอียดงานที่ต้องการ">
+        </textarea>
+
+
+        <button
+          class="btn btn-primary"
+          type="submit">
+
+          📅 ส่งข้อมูลจองคิว
+
+        </button>
+
+
+      </form>
+
+
+      <div
+        class="booking-result"
+        id="bookingResult">
+      </div>
+
+    </div>
+
+  </div>
 
 </section>
 
-<!-- TRACKING -->
+
+<!-- =========================
+     TRACKING
+========================= -->
 
 <section id="tracking">
 
-<div class="container">
+  <div class="container">
 
-<div class="section-head">
+    <div class="section-head">
 
-<div class="kicker">TRACKING</div>
+      <div class="kicker">
+        TRACKING
+      </div>
 
-<h2>🔎 ตรวจสอบสถานะงาน</h2>
+      <h2>
+        ตรวจสอบสถานะงาน
+      </h2>
 
-<p>
-กรอก Booking ID ที่ได้รับหลังจากจองคิว
-</p>
+      <p>
+        ใช้ Booking ID ที่ได้รับจากระบบ
+      </p>
 
-</div>
+    </div>
 
-<div class="contact-card">
 
-<form
-class="form"
-onsubmit="trackBooking(event)">
+    <div class="contact-card">
 
-<input
-id="trackingId"
-placeholder="เช่น AUTO-0001"
-required>
+      <form
+        class="form"
+        onsubmit="trackBooking(event)">
 
-<button
-class="btn btn-gold"
-type="submit">
+        <input
+          id="trackingId"
+          placeholder="เช่น AUTO-0001"
+          required>
 
-🔎 ตรวจสอบสถานะ
+        <button
+          class="btn btn-gold"
+          type="submit">
 
-</button>
+          🔎 ตรวจสอบสถานะ
 
-</form>
+        </button>
 
-<div
-class="booking-result"
-id="trackingResult">
-</div>
+      </form>
 
-</div>
 
-</div>
+      <div
+        class="booking-result"
+        id="trackingResult">
+      </div>
 
-</section>
+    </div>
 
-<!-- VEHICLE -->
-
-<section id="vehicles">
-
-<div class="container">
-
-<div class="section-head">
-
-<div class="kicker">VEHICLE HISTORY</div>
-
-<h2>🚗 ประวัติรถ</h2>
-
-<p>
-ระบบสำหรับบันทึกข้อมูลรถและประวัติการเข้ารับบริการ
-</p>
-
-</div>
-
-<div class="card">
-
-<p>
-🚘 ทะเบียนรถ<br>
-🚘 ยี่ห้อ / รุ่น / ปี<br>
-🎨 สีรถ<br>
-📊 เลขไมล์<br>
-🔧 ประวัติการซ่อม<br>
-📝 หมายเหตุ
-</p>
-
-<div class="buttons">
-
-<a
-href="#booking"
-class="btn btn-blue">
-
-เพิ่มรถ / จองบริการ
-
-</a>
-
-</div>
-
-</div>
-
-</div>
+  </div>
 
 </section>
 
-<!-- MAP -->
+
+<!-- =========================
+     LOCATION
+========================= -->
 
 <section id="contact">
 
-<div class="container">
+  <div class="container">
 
-<div class="section-head">
+    <div class="section-head">
 
-<div class="kicker">CONTACT US</div>
+      <div class="kicker">
+        CONTACT
+      </div>
 
-<h2>📍 ติดต่อเรา</h2>
+      <h2>
+        ติดต่อเรา
+      </h2>
 
-<p>
-ช่องทางติดต่อ เอ็มออโต้ แพลงท์เซอร์วิส
-</p>
+    </div>
 
-</div>
 
-<div class="contact-grid">
+    <div class="contact-grid">
 
-<div class="contact-card">
 
-<div class="contact-item">
+      <div class="contact-card">
 
-<div class="contact-icon">📞</div>
 
-<div>
+        <div class="contact-item">
 
-<span>โทรศัพท์</span>
+          <div class="contact-icon">
+            📞
+          </div>
 
-<a href="tel:0819349483">
-<b>081-934-9483</b>
-</a>
+          <div>
 
-</div>
+            <span>
+              โทรศัพท์
+            </span>
 
-</div>
+            <a href="tel:0819349483">
 
-<div class="contact-item">
+              <b>
+                081-934-9483
+              </b>
 
-<div class="contact-icon">👨‍🔧</div>
+            </a>
 
-<div>
+          </div>
 
-<span>ช่าง</span>
+        </div>
 
-<b>ช่างเอ็ม</b>
 
-</div>
+        <div class="contact-item">
 
-</div>
+          <div class="contact-icon">
+            👨‍🔧
+          </div>
 
-<div class="contact-item">
+          <div>
 
-<div class="contact-icon">📍</div>
+            <span>
+              ช่าง
+            </span>
 
-<div>
+            <b>
+              ช่างเอ็ม
+            </b>
 
-<span>ที่อยู่</span>
+          </div>
 
-<b>
-53 หมู่ 6 ตำบลสายห้วยแก้ว<br>
-อำเภอบ้านหมี่ จังหวัดลพบุรี
-</b>
+        </div>
 
-</div>
 
-</div>
+        <div class="contact-item">
 
-<div class="contact-item">
+          <div class="contact-icon">
+            📍
+          </div>
 
-<div class="contact-icon">📘</div>
+          <div>
 
-<div>
+            <span>
+              ที่อยู่
+            </span>
 
-<span>Facebook</span>
+            <b>
+              53 หมู่ 6
+              ตำบลสายห้วยแก้ว
+              อำเภอบ้านหมี่
+              จังหวัดลพบุรี
+            </b>
 
-<a
-href="https://www.facebook.com/share/1LZN5nJjKJ/?mibextid=wwXIfr"
-target="_blank">
+          </div>
 
-<b>เอ็มออโต้ แพลงท์เซอร์วิส</b>
+        </div>
 
-</a>
 
-</div>
+        <div class="contact-item">
 
-</div>
+          <div class="contact-icon">
+            📘
+          </div>
 
-<div class="buttons">
+          <div>
 
-<a
-class="btn btn-blue"
-href="tel:0819349483">
+            <span>
+              Facebook
+            </span>
 
-📞 โทรหาร้าน
+            <a
+              href="https://www.facebook.com/share/1LZN5nJjKJ/?mibextid=wwXIfr"
+              target="_blank">
 
-</a>
+              <b>
+                เอ็มออโต้ แพลงท์เซอร์วิส
+              </b>
 
-<a
-class="btn btn-red"
-href="https://www.facebook.com/share/1LZN5nJjKJ/?mibextid=wwXIfr"
-target="_blank">
+            </a>
 
-📘 Facebook
+          </div>
 
-</a>
+        </div>
 
-<a
-class="btn btn-gold"
-href="https://www.google.com/maps/search/?api=1&query=53+หมู่+6+ตำบลสายห้วยแก้ว+อำเภอบ้านหมี่+จังหวัดลพบุรี"
-target="_blank">
 
-📍 เปิดแผนที่
+        <div class="buttons">
 
-</a>
+          <a
+            class="btn btn-primary"
+            href="tel:0819349483">
+            📞 โทรหาร้าน
+          </a>
 
-</div>
+          <a
+            class="btn btn-red"
+            href="https://www.facebook.com/share/1LZN5nJjKJ/?mibextid=wwXIfr"
+            target="_blank">
+            📘 Facebook
+          </a>
 
-</div>
+          <a
+            class="btn btn-gold"
+            href="https://www.google.com/maps/search/?api=1&query=53+หมู่+6+ตำบลสายห้วยแก้ว+อำเภอบ้านหมี่+จังหวัดลพบุรี"
+            target="_blank">
+            📍 เปิดแผนที่
+          </a>
 
-<div class="map">
+        </div>
 
-<div>
 
-<div style="font-size:55px">
-📍
-</div>
+      </div>
 
-<h3>
-เอ็มออโต้ แพลงท์เซอร์วิส
-</h3>
 
-<p style="color:var(--muted);margin:10px 0 20px">
+      <div class="map">
 
-53 หมู่ 6 ตำบลสายห้วยแก้ว
-อำเภอบ้านหมี่ จังหวัดลพบุรี
+        <div>
 
-</p>
+          <div style="font-size:55px">
+            📍
+          </div>
 
-<a
-class="btn btn-blue"
-href="https://www.google.com/maps/search/?api=1&query=53+หมู่+6+ตำบลสายห้วยแก้ว+อำเภอบ้านหมี่+จังหวัดลพบุรี"
-target="_blank">
+          <h3>
+            เอ็มออโต้ แพลงท์เซอร์วิส
+          </h3>
 
-🗺️ เปิด Google Maps
+          <p
+            style="color:var(--muted);margin:10px 0 20px">
 
-</a>
+            53 หมู่ 6
+            ตำบลสายห้วยแก้ว
+            อำเภอบ้านหมี่
+            จังหวัดลพบุรี
 
-</div>
+          </p>
 
-</div>
 
-</div>
+          <a
+            class="btn btn-primary"
+            href="https://www.google.com/maps/search/?api=1&query=53+หมู่+6+ตำบลสายห้วยแก้ว+อำเภอบ้านหมี่+จังหวัดลพบุรี"
+            target="_blank">
 
-</div>
+            🗺️ นำทางไปที่ร้าน
+
+          </a>
+
+        </div>
+
+      </div>
+
+
+    </div>
+
+  </div>
 
 </section>
 
-<!-- ADMIN -->
+
+<!-- =========================
+     ADMIN
+========================= -->
 
 <section id="admin">
 
-<div class="container">
+  <div class="container">
 
-<div class="section-head">
+    <div class="section-head">
 
-<div class="kicker">ADMIN DASHBOARD</div>
+      <div class="kicker">
+        ADMIN DEMO
+      </div>
 
-<h2>⚙️ ระบบจัดการร้าน</h2>
+      <h2>
+        ⚙️ ระบบจัดการร้าน
+      </h2>
 
-<p>
-ข้อมูล Booking จะถูกเก็บไว้ในเครื่องผ่าน LocalStorage
-สำหรับ Demo ระบบ Single HTML
-</p>
+      <p>
+        Demo สำหรับไฟล์ HTML เดี่ยว
+      </p>
 
-</div>
+    </div>
 
-<div class="grid admin-grid">
 
-<div class="card">
+    <div class="grid admin-grid">
 
-<div class="service-icon">
-👥
-</div>
 
-<h3>
-ลูกค้า
-</h3>
+      <div class="card">
 
-<strong
-class="admin-number"
-id="customerCount">
-0
-</strong>
+        <div class="service-icon">
+          👥
+        </div>
 
-<p>
-จำนวนลูกค้า
-</p>
+        <h3>
+          ลูกค้า
+        </h3>
 
-</div>
+        <strong
+          id="customerCount"
+          class="admin-number">
+          0
+        </strong>
 
-<div class="card">
+        <p>
+          ลูกค้าที่บันทึกในเครื่องนี้
+        </p>
 
-<div class="service-icon">
-📅
-</div>
+      </div>
 
-<h3>
-Booking
-</h3>
 
-<strong
-class="admin-number"
-id="bookingCount">
-0
-</strong>
+      <div class="card">
 
-<p>
-จำนวนรายการจอง
-</p>
+        <div class="service-icon">
+          📅
+        </div>
 
-</div>
+        <h3>
+          Booking
+        </h3>
 
-<div class="card">
+        <strong
+          id="bookingCount"
+          class="admin-number">
+          0
+        </strong>
 
-<div class="service-icon">
-🔧
-</div>
+        <p>
+          รายการจองทั้งหมด
+        </p>
 
-<h3>
-งาน
-</h3>
+      </div>
 
-<strong
-class="admin-number">
--
-</strong>
 
-<p>
-รอเชื่อมฐานข้อมูลจริง
-</p>
+      <div class="card">
 
-</div>
+        <div class="service-icon">
+          🚗
+        </div>
 
-<div class="card">
+        <h3>
+          งานทั้งหมด
+        </h3>
 
-<div class="service-icon">
-⭐
-</div>
+        <strong
+          id="workCount"
+          class="admin-number">
+          0
+        </strong>
 
-<h3>
-รีวิว
-</h3>
+        <p>
+          จำนวนรายการจอง
+        </p>
 
-<strong
-class="admin-number">
--
-</strong>
+      </div>
 
-<p>
-รอระบบรีวิวจริง
-</p>
 
-</div>
+      <div class="card">
 
-</div>
+        <div class="service-icon">
+          ⭐
+        </div>
 
-</div>
+        <h3>
+          รีวิว
+        </h3>
+
+        <strong
+          class="admin-number">
+          -
+        </strong>
+
+        <p>
+          รอข้อมูลจริง
+        </p>
+
+      </div>
+
+
+    </div>
+
+
+    <div
+      class="contact-card"
+      style="margin-top:20px">
+
+      <h3>
+        ⚙️ การตั้งค่าร้าน
+      </h3>
+
+      <p style="margin:8px 0 20px">
+
+        สำหรับแก้ไขข้อมูลร้าน
+        ใน LocalStorage ของเครื่อง
+
+      </p>
+
+
+      <form
+        class="form"
+        onsubmit="saveSettings(event)">
+
+
+        <input
+          id="setName"
+          value="เอ็มออโต้ แพลงท์เซอร์วิส"
+          placeholder="ชื่อร้าน">
+
+
+        <input
+          id="setPhone"
+          value="081-934-9483"
+          placeholder="เบอร์โทร">
+
+
+        <input
+          id="setMechanic"
+          value="ช่างเอ็ม"
+          placeholder="ชื่อช่าง">
+
+
+        <textarea
+          id="setAddress">53 หมู่ 6 ตำบลสายห้วยแก้ว อำเภอบ้านหมี่ จังหวัดลพบุรี</textarea>
+
+
+        <input
+          id="setFacebook"
+          value="https://www.facebook.com/share/1LZN5nJjKJ/?mibextid=wwXIfr"
+          placeholder="Facebook URL">
+
+
+        <button
+          class="btn btn-primary"
+          type="submit">
+
+          💾 บันทึกข้อมูล
+
+        </button>
+
+
+      </form>
+
+    </div>
+
+  </div>
 
 </section>
 
+
 </main>
 
-<!-- ================= FOOTER ================= -->
+
+<!-- =========================
+     FOOTER
+========================= -->
 
 <footer>
 
-<div class="container footer-grid">
+  <div class="container footer-grid">
 
-<div>
 
-<div class="brand">
+    <div>
 
-<img
-src="https://i.ibb.co/35h779N8/6b219dcee969c322f7ffe86f284c55b2.jpg"
-alt="โลโก้ร้าน">
+      <div class="logo">
 
-<div class="brand-text">
+        <img
+          class="logo-img"
+          src="https://i.ibb.co/35h779N8/6b219dcee969c322f7ffe86f284c55b2.jpg"
+          alt="เอ็มออโต้">
 
-เอ็มออโต้
-<small>PLANT SERVICE</small>
+        <div class="logo-text">
 
-</div>
+          เอ็มออโต้
 
-</div>
+          <small>
+            PLANT SERVICE
+          </small>
 
-<p style="margin-top:15px">
+        </div>
 
-เอ็มออโต้ แพลงท์เซอร์วิส<br>
-“ครบจบที่เดียว!”
+      </div>
 
-</p>
 
-</div>
+      <p style="margin-top:15px">
 
-<div>
+        เอ็มออโต้ แพลงท์เซอร์วิส
+        <br>
+        “ครบจบที่เดียว!”
 
-<h3>
-ติดต่อ
-</h3>
+      </p>
 
-<p style="margin-top:10px">
-📞 081-934-9483
-</p>
+    </div>
 
-<p>
-👨‍🔧 ช่างเอ็ม
-</p>
 
-</div>
+    <div>
 
-<div>
+      <h3>
+        ติดต่อ
+      </h3>
 
-<h3>
-ที่อยู่
-</h3>
+      <p style="margin-top:10px">
+        081-934-9483
+      </p>
 
-<p style="margin-top:10px">
+      <p>
+        ช่างเอ็ม
+      </p>
 
-53 หมู่ 6 ตำบลสายห้วยแก้ว<br>
-อำเภอบ้านหมี่ จังหวัดลพบุรี
+    </div>
 
-</p>
 
-</div>
+    <div>
 
-</div>
+      <h3>
+        ที่อยู่
+      </h3>
 
-<div
-class="container"
-style="margin-top:40px;border-top:1px solid var(--line);padding-top:20px">
+      <p style="margin-top:10px">
 
-<p>
+        53 หมู่ 6
+        ตำบลสายห้วยแก้ว
+        <br>
+        อำเภอบ้านหมี่
+        จังหวัดลพบุรี
 
-© <span id="year"></span>
-เอ็มออโต้ แพลงท์เซอร์วิส
-• ครบจบที่เดียว!
+      </p>
 
-</p>
+    </div>
 
-</div>
+
+  </div>
+
+
+  <div
+    class="container"
+    style="
+      margin-top:40px;
+      padding-top:20px;
+      border-top:1px solid var(--line);
+    ">
+
+    <p>
+
+      ©
+      <span id="year"></span>
+
+      เอ็มออโต้ แพลงท์เซอร์วิส
+
+      • ครบจบที่เดียว!
+
+    </p>
+
+  </div>
 
 </footer>
 
-<!-- FLOATING MOBILE -->
+
+<!-- =========================
+     MOBILE BAR
+========================= -->
 
 <div class="floating">
 
-<a
-class="float-btn"
-href="tel:0819349483">
 
-<span>📞</span>
-โทร
+  <a
+    class="float-btn"
+    href="tel:0819349483">
 
-</a>
+    <span>📞</span>
+    โทร
 
-<a
-class="float-btn"
-href="https://www.facebook.com/share/1LZN5nJjKJ/?mibextid=wwXIfr"
-target="_blank">
+  </a>
 
-<span>📘</span>
-Facebook
 
-</a>
+  <a
+    class="float-btn"
+    href="https://www.facebook.com/share/1LZN5nJjKJ/?mibextid=wwXIfr"
+    target="_blank">
 
-<a
-class="float-btn"
-href="https://www.google.com/maps/search/?api=1&query=53+หมู่+6+ตำบลสายห้วยแก้ว+อำเภอบ้านหมี่+จังหวัดลพบุรี"
-target="_blank">
+    <span>📘</span>
+    Facebook
 
-<span>📍</span>
-แผนที่
+  </a>
 
-</a>
 
-<a
-class="float-btn"
-href="#booking">
+  <a
+    class="float-btn"
+    href="https://www.google.com/maps/search/?api=1&query=53+หมู่+6+ตำบลสายห้วยแก้ว+อำเภอบ้านหมี่+จังหวัดลพบุรี"
+    target="_blank">
 
-<span>📅</span>
-จองคิว
+    <span>📍</span>
+    แผนที่
 
-</a>
+  </a>
+
+
+  <a
+    class="float-btn"
+    href="#booking">
+
+    <span>📅</span>
+    จองคิว
+
+  </a>
+
 
 </div>
+
+
+<!-- =========================
+     TOAST
+========================= -->
 
 <div
-class="toast"
-id="toast">
+  class="toast"
+  id="toast">
 </div>
+
+
+<!-- =========================
+     LIGHTBOX
+========================= -->
+
+<div
+  class="lightbox"
+  id="lightbox"
+  onclick="closeImage(event)">
+
+  <button
+    class="close-lightbox"
+    onclick="closeLightbox()">
+    ×
+  </button>
+
+  <img
+    id="lightboxImage"
+    src=""
+    alt="รูปผลงาน">
+
+</div>
+
 
 <script>
 
-/* ================= STORAGE ================= */
+/* =========================
+   STORAGE
+========================= */
 
-const STORAGE_KEY = "m_auto_bookings_v2";
+const STORAGE_KEY =
+  "m_auto_bookings_v2";
+
 
 function getBookings(){
 
-  return JSON.parse(
-    localStorage.getItem(STORAGE_KEY) || "[]"
-  );
+  try{
+
+    return JSON.parse(
+      localStorage.getItem(STORAGE_KEY)
+      || "[]"
+    );
+
+  }catch{
+
+    return [];
+
+  }
 
 }
+
 
 function saveBookings(data){
 
@@ -2066,251 +3141,413 @@ function saveBookings(data){
 
 }
 
-/* ================= MENU ================= */
 
-function toggleMenu(){
-
-  document
-  .getElementById("navLinks")
-  .classList
-  .toggle("show");
-
-}
-
-document
-.querySelectorAll(".nav-links a")
-.forEach(link=>{
-
-  link.addEventListener("click",()=>{
-
-    document
-    .getElementById("navLinks")
-    .classList
-    .remove("show");
-
-  });
-
-});
-
-/* ================= TOAST ================= */
+/* =========================
+   TOAST
+========================= */
 
 function showToast(message){
 
   const toast =
-  document.getElementById("toast");
+    document.getElementById("toast");
 
-  toast.textContent = message;
+  toast.textContent=message;
 
-  toast.style.display = "block";
+  toast.style.display="block";
 
   setTimeout(()=>{
 
-    toast.style.display = "none";
+    toast.style.display="none";
 
   },3000);
 
 }
 
-/* ================= BOOKING ================= */
+
+/* =========================
+   MENU
+========================= */
+
+function toggleMenu(){
+
+  document
+    .getElementById("navLinks")
+    .classList
+    .toggle("show");
+
+}
+
+
+document
+  .querySelectorAll(".nav-links a")
+  .forEach(link=>{
+
+    link.addEventListener(
+      "click",
+      ()=>{
+
+        document
+          .getElementById("navLinks")
+          .classList
+          .remove("show");
+
+      }
+    );
+
+  });
+
+
+/* =========================
+   WORK FILTER
+========================= */
+
+function filterWorks(category,button){
+
+  document
+    .querySelectorAll(".filter")
+    .forEach(btn=>{
+
+      btn.classList.remove("active");
+
+      btn.classList.remove(
+        "btn-primary"
+      );
+
+      btn.classList.add(
+        "btn-dark"
+      );
+
+    });
+
+
+  button.classList.add("active");
+
+  button.classList.remove(
+    "btn-dark"
+  );
+
+  button.classList.add(
+    "btn-primary"
+  );
+
+
+  document
+    .querySelectorAll(".work-card")
+    .forEach(card=>{
+
+      const cardCategory =
+        card.dataset.category;
+
+
+      if(
+        category==="all"
+        ||
+        cardCategory===category
+        ||
+        cardCategory==="all"
+      ){
+
+        card.classList.remove(
+          "hidden"
+        );
+
+      }else{
+
+        card.classList.add(
+          "hidden"
+        );
+
+      }
+
+    });
+
+}
+
+
+/* =========================
+   LIGHTBOX
+========================= */
+
+function openImage(src){
+
+  const lightbox =
+    document.getElementById(
+      "lightbox"
+    );
+
+  const image =
+    document.getElementById(
+      "lightboxImage"
+    );
+
+  image.src=src;
+
+  lightbox.classList.add(
+    "show"
+  );
+
+  document.body.classList.add(
+    "lightbox-open"
+  );
+
+}
+
+
+function closeLightbox(){
+
+  document
+    .getElementById("lightbox")
+    .classList
+    .remove("show");
+
+  document.body.classList.remove(
+    "lightbox-open"
+  );
+
+}
+
+
+function closeImage(event){
+
+  if(
+    event.target.id==="lightbox"
+  ){
+
+    closeLightbox();
+
+  }
+
+}
+
+
+document.addEventListener(
+  "keydown",
+  event=>{
+
+    if(event.key==="Escape"){
+
+      closeLightbox();
+
+    }
+
+  }
+);
+
+
+/* =========================
+   CREATE BOOKING
+========================= */
 
 function createBooking(event){
 
   event.preventDefault();
 
-  const bookings = getBookings();
+
+  const bookings =
+    getBookings();
+
+
+  const number =
+    bookings.length + 1;
+
 
   const id =
-  "AUTO-" +
-  String(bookings.length + 1)
-  .padStart(4,"0");
+    "AUTO-"
+    +
+    String(number)
+      .padStart(4,"0");
 
-  const booking = {
+
+  const booking={
 
     id:id,
 
     name:
-    document
-    .getElementById("customerName")
-    .value,
+      document
+        .getElementById(
+          "customerName"
+        ).value.trim(),
 
     phone:
-    document
-    .getElementById("phone")
-    .value,
+      document
+        .getElementById(
+          "phone"
+        ).value.trim(),
 
     plate:
-    document
-    .getElementById("plate")
-    .value,
+      document
+        .getElementById(
+          "plate"
+        ).value.trim(),
 
     brand:
-    document
-    .getElementById("brand")
-    .value,
+      document
+        .getElementById(
+          "brand"
+        ).value.trim(),
 
     model:
-    document
-    .getElementById("model")
-    .value,
+      document
+        .getElementById(
+          "model"
+        ).value.trim(),
 
     year:
-    document
-    .getElementById("year")
-    .value,
+      document
+        .getElementById(
+          "year"
+        ).value.trim(),
 
     service:
-    document
-    .getElementById("service")
-    .value,
+      document
+        .getElementById(
+          "service"
+        ).value,
 
     date:
-    document
-    .getElementById("date")
-    .value,
+      document
+        .getElementById(
+          "date"
+        ).value,
 
     time:
-    document
-    .getElementById("time")
-    .value,
+      document
+        .getElementById(
+          "time"
+        ).value,
 
     detail:
-    document
-    .getElementById("detail")
-    .value,
+      document
+        .getElementById(
+          "detail"
+        ).value.trim(),
 
-    status:"รอยืนยัน",
+    status:
+      "รอยืนยัน",
 
     createdAt:
-    new Date().toISOString()
+      new Date().toISOString()
 
   };
 
-  bookings.push(booking);
 
-  saveBookings(bookings);
+  bookings.push(
+    booking
+  );
+
+
+  saveBookings(
+    bookings
+  );
+
 
   const result =
-  document.getElementById("bookingResult");
+    document.getElementById(
+      "bookingResult"
+    );
 
-  result.style.display = "block";
 
-  result.innerHTML = `
+  result.style.display="block";
+
+
+  result.innerHTML=`
 
     <h3>
-    ✅ จองคิวเรียบร้อย
+      ✅ จองคิวสำเร็จ
     </h3>
 
     <p style="margin-top:8px">
-    Booking ID ของคุณ
+      Booking ID ของคุณ
     </p>
 
     <strong
-    style="
-    display:block;
-    margin:5px 0;
-    font-size:32px;
-    color:#00d5ff;
-    ">
+      style="
+        display:block;
+        font-size:32px;
+        color:#00d9ff;
+        margin:5px 0;
+      ">
 
-    ${id}
+      ${id}
 
     </strong>
 
-    <p style="color:#9eacbd">
+    <p style="color:#94a5b8">
 
-    กรุณาบันทึก Booking ID
-    เพื่อใช้ตรวจสอบสถานะงาน
+      กรุณาบันทึก Booking ID
+      เพื่อใช้ตรวจสอบสถานะงาน
 
     </p>
 
-    <div class="buttons">
-
-      <button
-      class="btn btn-gold"
-      onclick="copyBooking('${id}')">
-
-      📋 คัดลอก Booking ID
-
-      </button>
-
-      <a
-      class="btn btn-blue"
-      href="#tracking">
-
-      🔎 ตรวจสอบสถานะ
-
-      </a>
-
-    </div>
-
   `;
 
+
   document
-  .getElementById("trackingId")
-  .value = id;
+    .getElementById(
+      "trackingId"
+    )
+    .value=id;
+
 
   updateDashboard();
 
+
   showToast(
-    "สร้าง Booking " + id + " เรียบร้อย"
+    "สร้าง "+id+" เรียบร้อยแล้ว"
   );
+
 
   event.target.reset();
 
 }
 
-/* ================= COPY ================= */
 
-function copyBooking(id){
-
-  navigator
-  .clipboard
-  .writeText(id)
-  .then(()=>{
-
-    showToast(
-      "คัดลอก " + id + " แล้ว"
-    );
-
-  });
-
-}
-
-/* ================= TRACKING ================= */
+/* =========================
+   TRACKING
+========================= */
 
 function trackBooking(event){
 
   event.preventDefault();
 
+
   const id =
-  document
-  .getElementById("trackingId")
-  .value
-  .trim()
-  .toUpperCase();
+    document
+      .getElementById(
+        "trackingId"
+      )
+      .value
+      .trim()
+      .toUpperCase();
+
 
   const booking =
-  getBookings()
-  .find(item=>item.id===id);
+    getBookings()
+      .find(
+        item=>item.id===id
+      );
+
 
   const result =
-  document.getElementById("trackingResult");
+    document.getElementById(
+      "trackingResult"
+    );
 
-  result.style.display = "block";
+
+  result.style.display="block";
+
 
   if(!booking){
 
-    result.innerHTML = `
+    result.innerHTML=`
 
       <h3>
-      ❌ ไม่พบ Booking
+        ❌ ไม่พบรายการ
       </h3>
 
-      <p style="color:#9eacbd">
-
-      กรุณาตรวจสอบ Booking ID
-      แล้วลองใหม่อีกครั้ง
-
+      <p>
+        ไม่พบ Booking ID
+        กรุณาตรวจสอบอีกครั้ง
       </p>
 
     `;
@@ -2319,80 +3556,28 @@ function trackBooking(event){
 
   }
 
-  const statuses = [
 
+  const statuses=[
     "รอยืนยัน",
     "ยืนยันแล้ว",
     "กำลังดำเนินการ",
     "เสร็จสิ้น"
-
   ];
 
-  result.innerHTML = `
 
-    <h3>
-    🚗 ${booking.id}
-    </h3>
-
-    <p style="margin-top:12px">
-
-    <b>ลูกค้า:</b>
-    ${booking.name}
-
-    <br>
-
-    <b>โทร:</b>
-    ${booking.phone}
-
-    <br>
-
-    <b>รถ:</b>
-    ${booking.brand || "-"}
-    ${booking.model || "-"}
-
-    <br>
-
-    <b>ทะเบียน:</b>
-    ${booking.plate || "-"}
-
-    <br>
-
-    <b>บริการ:</b>
-    ${booking.service}
-
-    <br>
-
-    <b>วันนัด:</b>
-    ${booking.date}
-
-    <br>
-
-    <b>เวลา:</b>
-    ${booking.time}
-
-    <br>
-
-    <b>สถานะ:</b>
-
-    <span
-    style="
-    color:#00d5ff;
-    font-weight:900;
-    ">
-
-    ${booking.status}
-
-    </span>
-
-    </p>
-
-    <div class="timeline">
-
-      ${statuses.map(status=>`
+  const timeline =
+    statuses
+      .map(status=>`
 
         <div
-        class="status
-        ${booking.status===status?"active":""}">
+          class="
+            status
+            ${
+              booking.status===status
+              ?"active"
+              :""
+            }
+          ">
 
           <div class="dot"></div>
 
@@ -2400,7 +3585,86 @@ function trackBooking(event){
 
         </div>
 
-      `).join("")}
+      `)
+      .join("");
+
+
+  result.innerHTML=`
+
+    <h3>
+      🚗 ${booking.id}
+    </h3>
+
+    <p style="margin-top:14px">
+
+      <b>ลูกค้า:</b>
+      ${escapeHTML(booking.name)}
+
+      <br>
+
+      <b>โทร:</b>
+      ${escapeHTML(booking.phone)}
+
+      <br>
+
+      <b>รถ:</b>
+      ${escapeHTML(
+        booking.brand || "-"
+      )}
+      ${escapeHTML(
+        booking.model || ""
+      )}
+
+      <br>
+
+      <b>ทะเบียน:</b>
+      ${escapeHTML(
+        booking.plate || "-"
+      )}
+
+      <br>
+
+      <b>บริการ:</b>
+      ${escapeHTML(
+        booking.service
+      )}
+
+      <br>
+
+      <b>วันนัด:</b>
+      ${escapeHTML(
+        booking.date
+      )}
+
+      <br>
+
+      <b>เวลา:</b>
+      ${escapeHTML(
+        booking.time
+      )}
+
+      <br>
+
+      <b>สถานะ:</b>
+
+      <span
+        style="
+          color:#00d9ff;
+          font-weight:900;
+        ">
+
+        ${escapeHTML(
+          booking.status
+        )}
+
+      </span>
+
+    </p>
+
+
+    <div class="timeline">
+
+      ${timeline}
 
     </div>
 
@@ -2408,42 +3672,217 @@ function trackBooking(event){
 
 }
 
-/* ================= DASHBOARD ================= */
+
+/* =========================
+   ESCAPE HTML
+========================= */
+
+function escapeHTML(value){
+
+  return String(value)
+    .replaceAll("&","&amp;")
+    .replaceAll("<","&lt;")
+    .replaceAll(">","&gt;")
+    .replaceAll('"',"&quot;")
+    .replaceAll("'","&#039;");
+
+}
+
+
+/* =========================
+   DASHBOARD
+========================= */
 
 function updateDashboard(){
 
   const bookings =
-  getBookings();
+    getBookings();
+
 
   document
-  .getElementById("bookingCount")
-  .textContent =
-  bookings.length;
-
-  const customers =
-  new Set(
-    bookings.map(
-      item=>item.phone
+    .getElementById(
+      "bookingCount"
     )
-  );
+    .textContent =
+    bookings.length;
+
 
   document
-  .getElementById("customerCount")
-  .textContent =
-  customers.size;
+    .getElementById(
+      "workCount"
+    )
+    .textContent =
+    bookings.length;
+
+
+  const phones =
+    [
+      ...new Set(
+        bookings
+          .map(
+            item=>item.phone
+          )
+          .filter(Boolean)
+      )
+    ];
+
+
+  document
+    .getElementById(
+      "customerCount"
+    )
+    .textContent =
+    phones.length;
 
 }
 
-/* ================= YEAR ================= */
+
+/* =========================
+   SETTINGS
+========================= */
+
+function saveSettings(event){
+
+  event.preventDefault();
+
+
+  const settings={
+
+    name:
+      document
+        .getElementById(
+          "setName"
+        ).value,
+
+    phone:
+      document
+        .getElementById(
+          "setPhone"
+        ).value,
+
+    mechanic:
+      document
+        .getElementById(
+          "setMechanic"
+        ).value,
+
+    address:
+      document
+        .getElementById(
+          "setAddress"
+        ).value,
+
+    facebook:
+      document
+        .getElementById(
+          "setFacebook"
+        ).value
+
+  };
+
+
+  localStorage.setItem(
+    "m_auto_settings",
+    JSON.stringify(
+      settings
+    )
+  );
+
+
+  showToast(
+    "บันทึกข้อมูลร้านแล้ว"
+  );
+
+}
+
+
+function loadSettings(){
+
+  try{
+
+    const settings =
+      JSON.parse(
+        localStorage.getItem(
+          "m_auto_settings"
+        )
+        || "null"
+      );
+
+
+    if(!settings){
+      return;
+    }
+
+
+    document
+      .getElementById(
+        "setName"
+      )
+      .value =
+      settings.name || "";
+
+
+    document
+      .getElementById(
+        "setPhone"
+      )
+      .value =
+      settings.phone || "";
+
+
+    document
+      .getElementById(
+        "setMechanic"
+      )
+      .value =
+      settings.mechanic || "";
+
+
+    document
+      .getElementById(
+        "setAddress"
+      )
+      .value =
+      settings.address || "";
+
+
+    document
+      .getElementById(
+        "setFacebook"
+      )
+      .value =
+      settings.facebook || "";
+
+  }catch{
+
+    console.log(
+      "ไม่สามารถโหลด Settings"
+    );
+
+  }
+
+}
+
+
+/* =========================
+   YEAR
+========================= */
 
 document
-.getElementById("year")
-.textContent =
-new Date().getFullYear();
+  .getElementById("year")
+  .textContent =
+  new Date()
+    .getFullYear();
 
-/* ================= INIT ================= */
+
+/* =========================
+   INIT
+========================= */
+
+loadSettings();
 
 updateDashboard();
+
 
 </script>
 
